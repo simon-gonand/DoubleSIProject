@@ -7,8 +7,7 @@ public class MousePositionDetection : MonoBehaviour
     [SerializeField]
     private Camera selfCamera;
 
-    private Vector3 _currentMousePosition;
-    public Vector3 currentMousePosition { get { return _currentMousePosition; } }
+    private CardDragMovements draggingCard;
 
     // Start is called before the first frame update
     void Start()
@@ -19,16 +18,29 @@ public class MousePositionDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = selfCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit[] hits = Physics.RaycastAll(ray);
-
-        foreach(var hit in hits)
+        if (Input.GetMouseButtonUp(0) && draggingCard != null)
         {
-            if (hit.collider.gameObject.layer != LayerMask.NameToLayer("Table")) continue;
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red);
+            draggingCard.isDragged = false;
+            draggingCard.EndDrag();
+            draggingCard = null;
+        }
 
-            _currentMousePosition = hit.point;
-            break;
+        if (draggingCard != null) return;
+
+        Ray ray = selfCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, LayerMask.NameToLayer("Card")))
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                CardDragMovements card = hit.collider.gameObject.GetComponent<CardDragMovements>();
+                if (card != null)
+                {
+                    draggingCard = card;
+                    draggingCard.InitDrag();
+                    draggingCard.isDragged = true;
+                }
+            }
         }
     }
 }
