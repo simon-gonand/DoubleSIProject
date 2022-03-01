@@ -7,29 +7,25 @@ public class CardDragMovements : MonoBehaviour
     [SerializeField]
     private Transform self;
 
-    private MousePositionDetection mousePosition;
-
     private Vector3 offset;
     private float zCoord;
+    private float xOriginalRotation;
 
     private bool _isDragged = false;
     public bool isDragged { set { _isDragged = value; } }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        mousePosition = Camera.main.GetComponent<MousePositionDetection>();
-    }
-
     public void InitDrag()
     {
         zCoord = Camera.main.WorldToScreenPoint(self.position).z;
-
         offset = self.position - GetMouseWorldPosition();
+
+        xOriginalRotation = self.eulerAngles.x;
+        self.rotation = Quaternion.Euler(0.0f, self.eulerAngles.y, self.eulerAngles.z);
     }
 
     public void EndDrag()
     {
+        self.rotation = Quaternion.Euler(xOriginalRotation, self.eulerAngles.y, self.eulerAngles.z);
     }
 
     public Vector3 GetMouseWorldPosition()
@@ -44,6 +40,11 @@ public class CardDragMovements : MonoBehaviour
     {
         if (!_isDragged) return;
 
-        self.position = GetMouseWorldPosition() + offset;
+        Debug.DrawRay(self.position, Camera.main.transform.forward * 100);
+        Vector3 newPos = GetMouseWorldPosition() + offset;
+        float yOffset = newPos.y - self.position.y;
+        newPos.y = self.position.y;
+        newPos.z += yOffset;
+        self.position = newPos;
     }
 }
