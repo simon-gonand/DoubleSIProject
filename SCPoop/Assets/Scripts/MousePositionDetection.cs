@@ -29,7 +29,7 @@ public class MousePositionDetection : MonoBehaviour
 
         Ray ray = selfCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, LayerMask.NameToLayer("Card")))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Card")))
         {
             if (Input.GetMouseButtonDown(0))
             {

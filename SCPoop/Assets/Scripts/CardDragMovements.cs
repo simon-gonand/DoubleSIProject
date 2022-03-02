@@ -15,6 +15,8 @@ public class CardDragMovements : MonoBehaviour
     private bool _isDragged = false;
     public bool isDragged { set { _isDragged = value; } }
 
+    private bool isSnapped = false;
+
     public void InitDrag()
     {
         originalPos = self.position;
@@ -55,18 +57,37 @@ public class CardDragMovements : MonoBehaviour
     {
         if (!_isDragged) return;
 
-        Debug.DrawRay(self.position, Camera.main.transform.forward * 100);
-        Vector3 newPos = GetMouseWorldPosition() + offset;
-        float yOffset = newPos.y - self.position.y;
-        newPos.y = self.position.y;
-        newPos.z += yOffset;
-        self.position = newPos;
+        Debug.DrawRay(GetMouseWorldPosition(), Camera.main.transform.forward * 100);
+
+        if (!isSnapped)
+        {
+            Vector3 newPos = GetMouseWorldPosition() + offset;
+            float yOffset = newPos.y - self.position.y;
+            newPos.y = self.position.y;
+            newPos.z += yOffset;
+            self.position = newPos;
+        }
 
         CheckSnapToSlot();
     }
 
     private void CheckSnapToSlot()
     {
-
+        RaycastHit hit;
+        if (Physics.Raycast(GetMouseWorldPosition(), Camera.main.transform.forward, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Slot")))
+        {
+            if (isSnapped) return;
+            Vector3 snapPos = hit.collider.transform.position;
+            snapPos.y += 0.01f;
+            self.position = snapPos;
+            isSnapped = true;
+        }
+        else
+        {
+            isSnapped = false;
+            Vector3 upPos = self.position;
+            upPos.y = originalPos.y;
+            self.position = upPos;
+        }
     }
 }
