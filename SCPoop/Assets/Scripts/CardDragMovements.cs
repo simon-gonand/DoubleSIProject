@@ -10,12 +10,14 @@ public class CardDragMovements : MonoBehaviour
     private Vector3 offset;
     private float zCoord;
     private float xOriginalRotation;
+    private Vector3 originalPos;
 
     private bool _isDragged = false;
     public bool isDragged { set { _isDragged = value; } }
 
     public void InitDrag()
     {
+        originalPos = self.position;
         zCoord = Camera.main.WorldToScreenPoint(self.position).z;
         offset = self.position - GetMouseWorldPosition();
 
@@ -26,6 +28,19 @@ public class CardDragMovements : MonoBehaviour
     public void EndDrag()
     {
         self.rotation = Quaternion.Euler(xOriginalRotation, self.eulerAngles.y, self.eulerAngles.z);
+        StartCoroutine(LerpToPosition(originalPos));
+    }
+
+    private IEnumerator LerpToPosition(Vector3 position)
+    {
+        float t = 0.0f;
+        Vector3 startPos = self.position;
+        while(t <= 1.0f)
+        {
+            t += Time.deltaTime * 10;
+            self.position = Vector3.Lerp(startPos, position, t);
+            yield return null;
+        }
     }
 
     public Vector3 GetMouseWorldPosition()
@@ -46,5 +61,12 @@ public class CardDragMovements : MonoBehaviour
         newPos.y = self.position.y;
         newPos.z += yOffset;
         self.position = newPos;
+
+        CheckSnapToSlot();
+    }
+
+    private void CheckSnapToSlot()
+    {
+
     }
 }
