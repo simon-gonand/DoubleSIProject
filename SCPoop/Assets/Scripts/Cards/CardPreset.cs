@@ -7,14 +7,19 @@ public class CardPreset : ScriptableObject
 {
     public enum Effect
     {
+        Unchangeable = 0,
+        Equals,
         Plus,
         Minus,
         Multiply,
         Divide,
-        Equals,
         Null,
-        Unchangeable,
         None
+    }
+
+    public enum Direction
+    {
+
     }
 
     public int power;
