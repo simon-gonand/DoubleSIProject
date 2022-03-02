@@ -76,12 +76,19 @@ public class Grid : MonoBehaviour
                     if (cards[x][y] == null) continue;
                     if (((int)cards[x][y].stats.effect) == i)
                     {
-                        for (int j = 0; j <= 7; ++j)
+                        if (cards[x][y].stats.direction == 0)
                         {
-                            int mask = 1 << j;
-                            if ((mask & cards[x][y].stats.direction) == mask)
+                            cards[x][y].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                        }
+                        else
+                        {
+                            for (int j = 0; j <= 7; ++j)
                             {
-                                CheckDirection(x, y, j);
+                                int mask = 1 << j;
+                                if ((mask & cards[x][y].stats.direction) == mask)
+                                {
+                                    CheckDirection(x, y, j);
+                                }
                             }
                         }
                     }
