@@ -36,6 +36,7 @@ public class MousePositionDetection : MonoBehaviour
                 CardDragMovements card = hit.collider.gameObject.GetComponent<CardDragMovements>();
                 if (card != null)
                 {
+                    if (card.isSnapped) return;
                     draggingCard = card;
                     draggingCard.InitDrag();
                     draggingCard.isDragged = true;

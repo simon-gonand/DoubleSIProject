@@ -15,10 +15,12 @@ public class CardDragMovements : MonoBehaviour
     private bool _isDragged = false;
     public bool isDragged { set { _isDragged = value; } }
 
-    private bool isSnapped = false;
+    private bool _isSnapped = false;
+    public bool isSnapped { get { return _isSnapped; } }
 
     public void InitDrag()
     {
+        if (_isSnapped) return;
         originalPos = self.position;
         zCoord = Camera.main.WorldToScreenPoint(self.position).z;
         offset = self.position - GetMouseWorldPosition();
@@ -29,6 +31,7 @@ public class CardDragMovements : MonoBehaviour
 
     public void EndDrag()
     {
+        if (_isSnapped) return;
         self.rotation = Quaternion.Euler(xOriginalRotation, self.eulerAngles.y, self.eulerAngles.z);
         StartCoroutine(LerpToPosition(originalPos));
     }
@@ -59,7 +62,7 @@ public class CardDragMovements : MonoBehaviour
 
         Debug.DrawRay(GetMouseWorldPosition(), Camera.main.transform.forward * 100);
 
-        if (!isSnapped)
+        if (!_isSnapped)
         {
             Vector3 newPos = GetMouseWorldPosition() + offset;
             float yOffset = newPos.y - self.position.y;
@@ -80,11 +83,11 @@ public class CardDragMovements : MonoBehaviour
             Vector3 snapPos = hit.collider.transform.position;
             snapPos.y += 0.01f;
             self.position = snapPos;
-            isSnapped = true;
+            _isSnapped = true;
         }
         else
         {
-            isSnapped = false;
+            _isSnapped = false;
             Vector3 upPos = self.position;
             upPos.y = originalPos.y;
             self.position = upPos;
