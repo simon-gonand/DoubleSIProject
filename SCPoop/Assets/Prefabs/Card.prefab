@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 7482394428414773562}
+  card: {fileID: -4390332830360450270}
 --- !u!114 &-4390332830360450270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
+  self: {fileID: 7482394428414773562}

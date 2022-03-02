@@ -6,6 +6,8 @@ public class CardDragMovements : MonoBehaviour
 {
     [SerializeField]
     private Transform self;
+    [SerializeField]
+    private Card card;
 
     private Vector3 offset;
     private float zCoord;
@@ -31,7 +33,11 @@ public class CardDragMovements : MonoBehaviour
 
     public void EndDrag()
     {
-        if (_isSnapped) return;
+        if (_isSnapped)
+        {
+            Grid.instance.AddCard(card);
+            return;
+        }
         self.rotation = Quaternion.Euler(xOriginalRotation, self.eulerAngles.y, self.eulerAngles.z);
         StartCoroutine(LerpToPosition(originalPos));
     }
@@ -80,6 +86,7 @@ public class CardDragMovements : MonoBehaviour
         if (Physics.Raycast(GetMouseWorldPosition(), Camera.main.transform.forward, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Slot")))
         {
             if (isSnapped) return;
+            if (!Grid.instance.IsSlotEmpty(hit.collider.transform)) return;
             Vector3 snapPos = hit.collider.transform.position;
             snapPos.y += 0.01f;
             self.position = snapPos;

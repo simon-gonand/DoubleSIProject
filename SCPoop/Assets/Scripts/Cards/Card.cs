@@ -5,6 +5,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public CardPreset stats;
+    public Transform self;
 
     // Start is called before the first frame update
     void Start()
