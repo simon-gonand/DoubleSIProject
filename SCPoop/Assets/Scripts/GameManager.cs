@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
     public void EndTurn()
     {
         playerDeck.Discard();
-        playerDeck.Draw();
-        Grid.instance.BeginTurn();
     }
 
     public void PlayCard(Card card)

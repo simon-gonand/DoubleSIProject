@@ -31,6 +31,7 @@ public class Deck : MonoBehaviour
 
     public void Draw()
     {
+        Debug.Log(hand.Count);
         if (hand.Count < 6)
         {
             if (stack.Count == 0)
@@ -52,6 +53,10 @@ public class Deck : MonoBehaviour
     private void RefillStack()
     {
         stack.AddRange(discard);
+        foreach(Card card in stack)
+        {
+            card.self.position = stackPosition.position;
+        }
         discard.Clear();
     }
 
@@ -86,14 +91,14 @@ public class Deck : MonoBehaviour
     {
         while (playedCard.Count > 0)
         {
-            StartCoroutine(DiscardMovement(playedCard[0]));
+            StartCoroutine(DiscardMovement(playedCard[0], playedCard.Count == 1));
             playedCard[0].GetComponent<CardDragMovements>().Initialize();
             discard.Add(playedCard[0]);
             playedCard.Remove(playedCard[0]);
         }
     }
 
-    private IEnumerator DiscardMovement(Card card)
+    private IEnumerator DiscardMovement(Card card, bool lastCard)
     {
         float t = 0.0f;
         Vector3 startPos = card.self.position;
@@ -102,6 +107,11 @@ public class Deck : MonoBehaviour
             t += Time.deltaTime * 10.0f;
             card.self.position = Vector3.Lerp(startPos, discardPosition.position, t);
             yield return null;
+        }
+        if (lastCard)
+        {
+            Draw();
+            Grid.instance.BeginTurn();
         }
     }
 
