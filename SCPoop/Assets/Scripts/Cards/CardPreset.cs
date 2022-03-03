@@ -13,13 +13,9 @@ public class CardPreset : ScriptableObject
         Minus,
         Multiply,
         Divide,
-        Null,
+        Nullify,
+        Heal,
         None
-    }
-
-    public enum Direction
-    {
-
     }
 
     public int power;

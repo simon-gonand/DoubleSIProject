@@ -9,6 +9,8 @@ public class Card : MonoBehaviour
 
     private float _tempPower;
     public float tempPower { get { return _tempPower; } }
+    private bool _tempIsHeal;
+    public bool tempIsHeal { get { return _tempIsHeal; } }
     private bool tempIsUnchangeable;
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class Card : MonoBehaviour
     {
         _tempPower = stats.power;
         tempIsUnchangeable = false;
+        _tempIsHeal = false;
     }
 
     public void ApplyEffect(CardPreset.Effect effect, float value)
@@ -47,8 +50,11 @@ public class Card : MonoBehaviour
             case CardPreset.Effect.Divide:
                 _tempPower /= value;
                 break;
-            case CardPreset.Effect.Null:
+            case CardPreset.Effect.Nullify:
                 _tempPower = 0.0f;
+                break;
+            case CardPreset.Effect.Heal:
+                _tempIsHeal = true;
                 break;
             case CardPreset.Effect.None:
                 return;

@@ -11,6 +11,8 @@ public class Grid : MonoBehaviour
     private Card[][] _cards = new Card[3][];
     public Card[][] cards { get { return _cards; } }
 
+    public Card[] debugEnemyHand;
+
     private void Awake()
     {
         if (instance == null)
@@ -23,7 +25,13 @@ public class Grid : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < 3; ++i)
+        {
             cards[i] = new Card[3];
+        }
+
+        cards[0][0] = debugEnemyHand[0];
+        cards[1][0] = debugEnemyHand[1];
+        cards[2][0] = debugEnemyHand[2];
     }
 
     public bool IsSlotEmpty(Transform t)
@@ -67,7 +75,7 @@ public class Grid : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 7; ++i)
+        for (int i = 0; i < 8; ++i)
         {
             for (int x = 0; x < 3; ++x)
             {
@@ -97,17 +105,29 @@ public class Grid : MonoBehaviour
             }
         }
 
-        float result = 0;
+        float playerResult = 0;
+        float enemyResult = 0;
+        float heal = 0;
         for (int x = 0; x < 3; ++x)
         {
             for (int y = 0; y < 3; ++y)
             {
                 if (cards[x][y] == null) continue;
-                result += cards[x][y].tempPower;
+                if (y == 0)
+                    enemyResult += cards[x][y].tempPower;
+                else
+                {
+                    if (cards[x][y].tempIsHeal)
+                        heal += cards[x][y].tempPower;
+                    else
+                        playerResult += cards[x][y].tempPower;
+                }
             }
         }
 
-        Debug.Log(result);
+        Debug.Log("Enemy power : " + enemyResult);
+        Debug.Log("Player power : " + playerResult);
+        Debug.Log("Heal : " + heal);
     }
 
     private void CheckDirection(int x, int y, int j)
@@ -148,15 +168,15 @@ public class Grid : MonoBehaviour
                 break;
             case 6:
                 if (x == 2) return;
-                if (y == 0) return;
-                if (cards[x + 1][y - 1] == null) return;
-                cards[x + 1][y - 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                if (y == 2) return;
+                if (cards[x + 1][y + 1] == null) return;
+                cards[x + 1][y + 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
                 break;
             case 7:
                 if (x == 0) return;
-                if (y == 0) return;
-                if (cards[x - 1][y - 1] == null) return;
-                cards[x - 1][y - 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                if (y == 2) return;
+                if (cards[x - 1][y + 1] == null) return;
+                cards[x - 1][y + 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
                 break;
             default:
                 break;

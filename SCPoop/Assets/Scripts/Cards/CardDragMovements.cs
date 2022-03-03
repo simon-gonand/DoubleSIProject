@@ -17,12 +17,11 @@ public class CardDragMovements : MonoBehaviour
     private bool _isDragged = false;
     public bool isDragged { set { _isDragged = value; } }
 
-    private bool _isSnapped = false;
-    public bool isSnapped { get { return _isSnapped; } }
+    public bool isSnapped;
 
     public void InitDrag()
     {
-        if (_isSnapped) return;
+        if (isSnapped) return;
         originalPos = self.position;
         zCoord = Camera.main.WorldToScreenPoint(self.position).z;
         offset = self.position - GetMouseWorldPosition();
@@ -33,7 +32,7 @@ public class CardDragMovements : MonoBehaviour
 
     public void EndDrag()
     {
-        if (_isSnapped)
+        if (isSnapped)
         {
             Grid.instance.AddCard(card);
             return;
@@ -68,7 +67,7 @@ public class CardDragMovements : MonoBehaviour
 
         Debug.DrawRay(GetMouseWorldPosition(), Camera.main.transform.forward * 100);
 
-        if (!_isSnapped)
+        if (!isSnapped)
         {
             Vector3 newPos = GetMouseWorldPosition() + offset;
             float yOffset = newPos.y - self.position.y;
@@ -90,11 +89,11 @@ public class CardDragMovements : MonoBehaviour
             Vector3 snapPos = hit.collider.transform.position;
             snapPos.y += 0.01f;
             self.position = snapPos;
-            _isSnapped = true;
+            isSnapped = true;
         }
         else
         {
-            _isSnapped = false;
+            isSnapped = false;
             Vector3 upPos = self.position;
             upPos.y = originalPos.y;
             self.position = upPos;
