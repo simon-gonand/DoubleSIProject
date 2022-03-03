@@ -14,6 +14,7 @@ public class Deck : MonoBehaviour
     public List<Card> stack;
     private List<Card> discard = new List<Card>(12);
     private List<Card> hand = new List<Card>(6);
+    private List<Card> playedCard = new List<Card>();
 
     private bool isDrawing = false;
     private bool isCardDrawing = false;
@@ -72,6 +73,35 @@ public class Deck : MonoBehaviour
             }
         }
         return Vector3.positiveInfinity;
+    }
+
+    public void PlayCard(Card card)
+    {
+        hand.Remove(card);
+        playedCard.Add(card);
+    }
+
+    public void Discard()
+    {
+        while (playedCard.Count > 0)
+        {
+            StartCoroutine(DiscardMovement(playedCard[0]));
+            playedCard[0].GetComponent<CardDragMovements>().Initialize();
+            discard.Add(playedCard[0]);
+            playedCard.Remove(playedCard[0]);
+        }
+    }
+
+    private IEnumerator DiscardMovement(Card card)
+    {
+        float t = 0.0f;
+        Vector3 startPos = card.self.position;
+        while (t < 1.0f)
+        {
+            t += Time.deltaTime * 10.0f;
+            card.self.position = Vector3.Lerp(startPos, discardPosition.position, t);
+            yield return null;
+        }
     }
 
     // Update is called once per frame

@@ -36,6 +36,18 @@ public class Grid : MonoBehaviour
         cards[2][0] = debugEnemyHand[2];
     }
 
+    public void BeginTurn()
+    {
+        for (int y = 1; y < 3; ++y)
+        {
+            for (int x = 0; x < 3; ++x)
+            {
+                if (cards[x][y] == null) continue;
+                cards[x][y] = null;
+            }
+        }
+    }
+
     public bool IsSlotEmpty(Transform t)
     {
         for(int i = 0; i < slots.Count; ++i)
@@ -136,6 +148,7 @@ public class Grid : MonoBehaviour
         if (isFull)
         {
             PlayersAttack(playerResult);
+            GameManager.instance.EndTurn();
         }
 
         if (enemyReadyToAttack)

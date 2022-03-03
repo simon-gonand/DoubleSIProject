@@ -18,6 +18,12 @@ public class CardDragMovements : MonoBehaviour
 
     public bool isSnapped;
 
+    public void Initialize()
+    {
+        _isDragged = false;
+        isSnapped = false;
+    }
+
     public void InitDrag()
     {
         if (isSnapped) return;
@@ -33,6 +39,7 @@ public class CardDragMovements : MonoBehaviour
     {
         if (isSnapped)
         {
+            GameManager.instance.PlayCard(card);
             Grid.instance.AddCard(card);
             return;
         }
