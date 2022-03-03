@@ -7,7 +7,8 @@ public class Card : MonoBehaviour
     public CardPreset stats;
     public Transform self;
     public GameObject arrow;
-
+    public TextMesh symbol;
+    public TextMesh power;
     private float _tempPower;
     public float tempPower { get { return _tempPower; } }
     private bool _tempIsHeal;
@@ -29,6 +30,8 @@ public class Card : MonoBehaviour
         tempIsUnchangeable = false;
         _tempIsHeal = false;
         InitArrows();
+        InitSign();
+        InitPower();
        
     }
 
@@ -91,6 +94,43 @@ public class Card : MonoBehaviour
                 }
             }
         }
+    }
+    public void InitSign()
+    {
+        switch (stats.effect)
+        {
+            case CardPreset.Effect.Unchangeable:
+                symbol.text = "[]";
+                break;
+            case CardPreset.Effect.Equals:
+                symbol.text = "=";
+                break;
+            case CardPreset.Effect.Plus:
+                symbol.text = "+";
+                break;
+            case CardPreset.Effect.Minus:
+                symbol.text = "-";
+                break;
+            case CardPreset.Effect.Multiply:
+                symbol.text = "x";
+                break;
+            case CardPreset.Effect.Divide:
+                symbol.text = "%";
+                break;
+            case CardPreset.Effect.Nullify:
+                symbol.text = "Ø";
+                break;
+            case CardPreset.Effect.Heal:
+                symbol.text = "<3";
+                break;
+            case CardPreset.Effect.None:
+                symbol.text = " ";
+                return;
+        }
+    }
+    public void InitPower()
+    {
+        power.text = stats.power.ToString();
     }
 
     public void ApplyEffect(CardPreset.Effect effect, float value)
