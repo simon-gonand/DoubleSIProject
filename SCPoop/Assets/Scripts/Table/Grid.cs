@@ -13,8 +13,6 @@ public class Grid : MonoBehaviour
 
     public Card[] debugEnemyHand;
 
-    private bool enemyReadyToAttack = false;
-
     private void Awake()
     {
         if (instance == null)
@@ -135,12 +133,7 @@ public class Grid : MonoBehaviour
 
         if (isFull)
         {
-            PlayersAttack(playerResult);
-        }
-
-        if (enemyReadyToAttack)
-        {
-            EnemyAttack(enemyResult);
+            Attack(playerResult, enemyResult);
         }
 
         Debug.Log("Enemy power : " + enemyResult);
@@ -201,21 +194,20 @@ public class Grid : MonoBehaviour
         }
     }
 
-    private void PlayersAttack(float playerResult)
+    private void Attack(float playerResult, float enemyResult)
     {
+        Debug.Log("ça passe en Player Attack");
         LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
-        StartCoroutine(FightCoroutine(0.7f));
+        if(LifeSystem.instance.enemylife > 0)
+        {
+            StartCoroutine(FightCoroutine(0.7f, enemyResult));
+        }
     }
 
-    private void EnemyAttack(float enemyResult)
-    {
-        LifeSystem.instance.playerLife = LifeSystem.instance.enemylife - enemyResult;
-        StartCoroutine(FightCoroutine(0.7f));
-    }
-
-    IEnumerator FightCoroutine(float time)
+    IEnumerator FightCoroutine(float time, float enemyResult)
     {
         yield return new WaitForSeconds(time);
-        enemyReadyToAttack = !enemyReadyToAttack;
+        Debug.Log("ça passe en Enemy Attack");
+        LifeSystem.instance.playerLife = LifeSystem.instance.enemylife - enemyResult;
     }
 }
