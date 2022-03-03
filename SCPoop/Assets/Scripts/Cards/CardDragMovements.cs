@@ -6,8 +6,7 @@ public class CardDragMovements : MonoBehaviour
 {
     [SerializeField]
     private Transform self;
-    [SerializeField]
-    private Card card;
+    public Card card;
 
     private Vector3 offset;
     private float zCoord;

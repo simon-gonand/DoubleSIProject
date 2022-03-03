@@ -13,6 +13,8 @@ public class Grid : MonoBehaviour
 
     public Card[] debugEnemyHand;
 
+    private bool enemyReadyToAttack = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -108,11 +110,17 @@ public class Grid : MonoBehaviour
         float playerResult = 0;
         float enemyResult = 0;
         float heal = 0;
+        bool isFull = true;
+
         for (int x = 0; x < 3; ++x)
         {
             for (int y = 0; y < 3; ++y)
             {
-                if (cards[x][y] == null) continue;
+                if (cards[x][y] == null)
+                {
+                    isFull = false;
+                    continue;
+                }
                 if (y == 0)
                     enemyResult += cards[x][y].tempPower;
                 else
@@ -123,6 +131,16 @@ public class Grid : MonoBehaviour
                         playerResult += cards[x][y].tempPower;
                 }
             }
+        }
+
+        if (isFull)
+        {
+            PlayersAttack(playerResult);
+        }
+
+        if (enemyReadyToAttack)
+        {
+            EnemyAttack(enemyResult);
         }
 
         Debug.Log("Enemy power : " + enemyResult);
@@ -183,9 +201,21 @@ public class Grid : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PlayersAttack(float playerResult)
     {
-        
+        LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
+        StartCoroutine(FightCoroutine(0.7f));
+    }
+
+    private void EnemyAttack(float enemyResult)
+    {
+        LifeSystem.instance.playerLife = LifeSystem.instance.enemylife - enemyResult;
+        StartCoroutine(FightCoroutine(0.7f));
+    }
+
+    IEnumerator FightCoroutine(float time)
+    {
+        yield return new WaitForSeconds(time);
+        enemyReadyToAttack = !enemyReadyToAttack;
     }
 }
