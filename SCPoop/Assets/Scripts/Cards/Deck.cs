@@ -10,6 +10,7 @@ public class Deck : MonoBehaviour
     private Transform discardPosition;
     [SerializeField]
     private Transform[] handPositions;
+    public Quaternion inHandRotation;
 
     public List<Card> stack;
     private List<Card> discard = new List<Card>(12);
@@ -25,7 +26,7 @@ public class Deck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void Draw()
@@ -113,6 +114,7 @@ public class Deck : MonoBehaviour
             {
                 movingT += Time.deltaTime * 10;
                 drawingCard.self.position = Vector3.Lerp(stackPosition.position, handPositionDrawing, movingT);
+                drawingCard.self.rotation = Quaternion.Slerp(Quaternion.Euler(Vector3.zero), inHandRotation, movingT);
                 if (movingT > 1.0f)
                 {
                     movingT = 0.0f;
