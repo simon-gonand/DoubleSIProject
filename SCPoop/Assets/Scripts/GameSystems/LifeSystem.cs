@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeSystem : MonoBehaviour
 {
@@ -25,9 +26,20 @@ public class LifeSystem : MonoBehaviour
         enemylife = enemyMaxLife;
     }
 
+    private void Update()
+    {
+        Debug.Log(playerLife);
+        Debug.Log(enemylife);
+        if(playerLife <= 0)
+        {
+            PlayerDeath();
+        }
+    }
+
     private void PlayerDeath()
     {
-        //go to Death Screen
+        Debug.Log("T'es mort Teuteu");
+        SceneManager.LoadScene("Death Screen");
     }
 
 
