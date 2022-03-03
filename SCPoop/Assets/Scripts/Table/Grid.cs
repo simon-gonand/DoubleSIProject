@@ -110,7 +110,7 @@ public class Grid : MonoBehaviour
         float playerResult = 0;
         float enemyResult = 0;
         float heal = 0;
-        bool isFull = false;
+        bool isFull = true;
 
         for (int x = 0; x < 3; ++x)
         {
@@ -204,28 +204,18 @@ public class Grid : MonoBehaviour
     private void PlayersAttack(float playerResult)
     {
         LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
-        StartCoroutine(BeforeEnemyAttack(0.7f));
+        StartCoroutine(FightCoroutine(0.7f));
     }
 
     private void EnemyAttack(float enemyResult)
     {
         LifeSystem.instance.playerLife = LifeSystem.instance.enemylife - enemyResult;
-        StartCoroutine(BeforeEndOfTurn(0.7f));
+        StartCoroutine(FightCoroutine(0.7f));
     }
 
-    IEnumerator BeforeEnemyAttack(float time)
+    IEnumerator FightCoroutine(float time)
     {
-        float i = 0.7f;
-        i =-Time.deltaTime;
-        yield return null;
-        enemyReadyToAttack = true;
-    }
-
-    IEnumerator BeforeEndOfTurn(float time)
-    {
-        float i = 0.7f;
-        i = -Time.deltaTime;
-        yield return null;
-        enemyReadyToAttack = false;
+        yield return new WaitForSeconds(time);
+        enemyReadyToAttack = !enemyReadyToAttack;
     }
 }
