@@ -146,7 +146,6 @@ public class Grid : MonoBehaviour
         if (isFull)
         {
             Attack(playerResult, enemyResult);
-            PlayersAttack(playerResult);
             GameManager.instance.EndTurn();
         }
 

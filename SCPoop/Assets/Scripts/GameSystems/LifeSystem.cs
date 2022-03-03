@@ -28,8 +28,8 @@ public class LifeSystem : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(playerLife);
-        Debug.Log(enemylife);
+        /*Debug.Log(playerLife);
+        Debug.Log(enemylife);*/
         if(playerLife <= 0)
         {
             PlayerDeath();

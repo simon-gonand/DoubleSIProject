@@ -31,7 +31,6 @@ public class Deck : MonoBehaviour
 
     public void Draw()
     {
-        Debug.Log(hand.Count);
         if (hand.Count < 6)
         {
             if (stack.Count == 0)
