@@ -13,6 +13,9 @@ public class Card : MonoBehaviour
     public bool tempIsHeal { get { return _tempIsHeal; } }
     private bool tempIsUnchangeable;
 
+    private bool _isInStack = true;
+    public bool isInStack { get { return _isInStack; }  set { _isInStack = value; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,11 +64,5 @@ public class Card : MonoBehaviour
         }
 
         if (_tempPower < 0.0f) _tempPower = 0.0f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

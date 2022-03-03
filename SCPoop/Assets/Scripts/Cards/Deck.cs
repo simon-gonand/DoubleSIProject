@@ -39,6 +39,7 @@ public class Deck : MonoBehaviour
             hand.Add(stack[index]);
             isCardDrawing = true;
             drawingCard = stack[index];
+            drawingCard.isInStack = false;
             movingT = 0.0f;
             stack.RemoveAt(index);
         }
