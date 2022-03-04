@@ -28,9 +28,7 @@ public class LifeSystem : MonoBehaviour
 
     private void Update()
     {
-        /*Debug.Log(playerLife);
-        Debug.Log(enemylife);*/
-        if(playerLife <= 0)
+        if (playerLife <= 0)
         {
             PlayerDeath();
         }
@@ -41,6 +39,5 @@ public class LifeSystem : MonoBehaviour
         Debug.Log("T'es mort Teuteu");
         SceneManager.LoadScene("Death Screen");
     }
-
 
 }

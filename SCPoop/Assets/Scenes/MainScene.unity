@@ -2778,8 +2778,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLife: 10
   playerMaxLife: 10
-  enemylife: 10
-  enemyMaxLife: 10
+  enemylife: 100
+  enemyMaxLife: 100
 --- !u!1 &1592610534
 GameObject:
   m_ObjectHideFlags: 0
