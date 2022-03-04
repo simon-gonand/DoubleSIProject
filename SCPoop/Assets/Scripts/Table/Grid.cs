@@ -11,6 +11,9 @@ public class Grid : MonoBehaviour
     private Card[][] _cards = new Card[3][];
     public Card[][] cards { get { return _cards; } }
 
+    public float playerResult = 0;
+    public float enemyResult = 0;
+
     public Card[] debugEnemyHand;
 
     private void Awake()
@@ -32,6 +35,22 @@ public class Grid : MonoBehaviour
         cards[0][0] = debugEnemyHand[0];
         cards[1][0] = debugEnemyHand[1];
         cards[2][0] = debugEnemyHand[2];
+
+        CalculatePower();
+    }
+
+    public void BeginTurn()
+    {
+        for (int y = 1; y < 3; ++y)
+        {
+            for (int x = 0; x < 3; ++x)
+            {
+                if (cards[x][y] == null) continue;
+                cards[x][y] = null;
+            }
+        }
+
+        CalculatePower();
     }
 
     public bool IsSlotEmpty(Transform t)
@@ -105,14 +124,20 @@ public class Grid : MonoBehaviour
             }
         }
 
-        float playerResult = 0;
-        float enemyResult = 0;
+        playerResult = 0;
+        enemyResult = 0;
         float heal = 0;
+        bool isFull = true;
+
         for (int x = 0; x < 3; ++x)
         {
             for (int y = 0; y < 3; ++y)
             {
-                if (cards[x][y] == null) continue;
+                if (cards[x][y] == null)
+                {
+                    isFull = false;
+                    continue;
+                }
                 if (y == 0)
                     enemyResult += cards[x][y].tempPower;
                 else
@@ -125,9 +150,15 @@ public class Grid : MonoBehaviour
             }
         }
 
-        Debug.Log("Enemy power : " + enemyResult);
+        if (isFull)
+        {
+            Attack(playerResult, enemyResult);
+            GameManager.instance.EndTurn();
+        }
+
+        /*Debug.Log("Enemy power : " + enemyResult);
         Debug.Log("Player power : " + playerResult);
-        Debug.Log("Heal : " + heal);
+        Debug.Log("Heal : " + heal);*/
     }
 
     private void CheckDirection(int x, int y, int j)
@@ -183,9 +214,20 @@ public class Grid : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Attack(float playerResult, float enemyResult)
     {
-        
+        LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
+        if(LifeSystem.instance.enemylife > 0)
+        {
+            StartCoroutine(FightCoroutine(0.7f, enemyResult));
+        }
+    }
+
+    IEnumerator FightCoroutine(float time, float enemyResult)
+    {
+        yield return new WaitForSeconds(time);
+        LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult;
+        Debug.Log(LifeSystem.instance.playerLife);
+        Debug.Log(LifeSystem.instance.enemylife);
     }
 }
