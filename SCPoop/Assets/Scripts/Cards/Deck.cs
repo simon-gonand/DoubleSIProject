@@ -78,6 +78,7 @@ public class Deck : MonoBehaviour
     {
         hand.Remove(card);
         playedCard.Add(card);
+        GameManager.instance.player1Turn = !GameManager.instance.player1Turn;
     }
 
     public void Discard()

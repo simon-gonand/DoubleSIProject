@@ -6,7 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public Deck playerDeck;
+    public Deck player1Deck;
+    public Deck player2Deck;
+
+    public bool player1Turn = true;
 
     private void Awake()
     {
@@ -19,22 +22,29 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerDeck.Draw();   
+        player1Deck.Draw();   
+        player2Deck.Draw();   
     }
 
     public void EndTurn()
     {
-        playerDeck.Discard();
+        player1Deck.Discard();
+        player2Deck.Discard();
+    }
+
+    public bool CheckPlayerTurn(Card card)
+    {
+        if ((player1Turn && LayerMask.LayerToName(card.gameObject.layer) == "CardInHand1") ||
+            (!player1Turn && LayerMask.LayerToName(card.gameObject.layer) == "CardInHand2"))
+            return true;
+        return false;
     }
 
     public void PlayCard(Card card)
     {
-        playerDeck.PlayCard(card);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (player1Turn)
+            player1Deck.PlayCard(card);
+        else
+            player2Deck.PlayCard(card);
     }
 }
