@@ -7,7 +7,7 @@ public class CardSelector : MonoBehaviour
     [HideInInspector]public Sprite selectorImage;
     public CardPreset cardPreset;
     bool selected = false;
-    public int deckCardCount = 0; //test
+    //public int deckCardCount = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -19,20 +19,11 @@ public class CardSelector : MonoBehaviour
     {
         if (!selected)
         {
-            if (deckCardCount < 12)
-            {
-                deckCardCount++;
-                Debug.Log("Card added, Total: " + deckCardCount);
-                selected = true;
-            }
-            else
-                Debug.Log("Deck is full!");
+            selected = DeckBuilderManager.instance.AddCard(cardPreset);
         }
         else
         {
-            deckCardCount--;
-            Debug.Log("Card removed, Total: " + deckCardCount);
-            selected = false;
+            selected = DeckBuilderManager.instance.RemoveCard(cardPreset);
         }
     }
 }
