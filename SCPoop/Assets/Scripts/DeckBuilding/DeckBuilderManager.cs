@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class DeckBuilderManager : MonoBehaviour
 {
@@ -47,6 +47,15 @@ public class DeckBuilderManager : MonoBehaviour
         //Debug.Log("Card removed, Total: " + cardCount);
         cardCountText.text = cardCount.ToString();
         return false;
+    }
+
+    public void ToGame()
+    {
+        if(cardCount == 12)
+        {
+            //Transmit deck to "gameManager"
+            SceneManager.LoadScene(0);
+        }
     }
 
     //public void ClearDeck()
