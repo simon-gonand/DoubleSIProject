@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camAnimator: {fileID: 3710186089290607257}
   camnbr: 3
-  startCamIndex: 0
+  startCamIndex: 1
 --- !u!1 &3710186089373303111
 GameObject:
   m_ObjectHideFlags: 0

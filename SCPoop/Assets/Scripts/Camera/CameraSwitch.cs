@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraSwitch : MonoBehaviour
 {
     [Header("Requirements")]
     [SerializeField] private Animator camAnimator;
+    [SerializeField] private CinemachineBrain cameraBrainP1;
+    [SerializeField] private CinemachineBrain cameraBrainP2;
 
     [Header("Stats")]
     [SerializeField] private int camnbr;
-    [SerializeField] private int startCamIndex;
+    [SerializeField] private int startCamIndex = 1;
 
     private int currentCamIndex;
 
@@ -21,6 +24,7 @@ public class CameraSwitch : MonoBehaviour
     private void Initialize()
     {
         currentCamIndex = startCamIndex;
+        cameraBrainP2.enabled = false;
 
         SwitchCam();
     }
@@ -75,4 +79,16 @@ public class CameraSwitch : MonoBehaviour
         }
     }
 
+    [ContextMenu("SwitchPlayerCamera")]
+    public void SwitchPlayerCamera()
+    {
+        cameraBrainP1.enabled = !cameraBrainP1.enabled;
+        cameraBrainP2.enabled = !cameraBrainP2.enabled;
+
+        if (currentCamIndex != 1)
+        {
+            currentCamIndex = 1;
+            SwitchCam();
+        }
+    }
 }
