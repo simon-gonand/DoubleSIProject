@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 292164118}
   - component: {fileID: 292164115}
   m_Layer: 7
-  m_Name: Ground
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,7 +1666,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41414
+  m_Name: pb_Mesh64358
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
