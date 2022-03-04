@@ -29,14 +29,14 @@ public class MousePositionDetection : MonoBehaviour
 
         Ray ray = selfCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Card")))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, GameManager.instance.GetPlayerLayerMask()))
         {
             if (Input.GetMouseButtonDown(0))
             {
                 CardDragMovements card = hit.collider.gameObject.GetComponent<CardDragMovements>();
                 if (card != null)
                 {
-                    if (card.isSnapped || card.card.isInStack || !GameManager.instance.CheckPlayerTurn(card.card)) return;
+                    if (card.isSnapped || card.card.isInStack) return;
                     draggingCard = card;
                     draggingCard.InitDrag();
                     draggingCard.isDragged = true;

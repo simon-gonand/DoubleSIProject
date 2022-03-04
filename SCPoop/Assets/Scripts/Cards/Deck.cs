@@ -17,6 +17,9 @@ public class Deck : MonoBehaviour
     private List<Card> hand = new List<Card>(6);
     private List<Card> playedCard = new List<Card>();
 
+    private bool _isPlayerOne;
+    public bool isPlayerOne { set { _isPlayerOne = value; } }
+
     private bool isDrawing = false;
     private bool isCardDrawing = false;
     private Card drawingCard;
@@ -33,6 +36,10 @@ public class Deck : MonoBehaviour
             int index = Random.Range(0, stack.Count - 1);
             handPositionDrawing = GetCardPosition();
             hand.Add(stack[index]);
+            if (_isPlayerOne)
+                stack[index].gameObject.layer = LayerMask.NameToLayer("CardHandP1");
+            else
+                stack[index].gameObject.layer = LayerMask.NameToLayer("CardHandP2");
             isCardDrawing = true;
             drawingCard = stack[index];
             drawingCard.isInStack = false;
@@ -78,6 +85,7 @@ public class Deck : MonoBehaviour
     {
         hand.Remove(card);
         playedCard.Add(card);
+        card.gameObject.layer = LayerMask.NameToLayer("Card");
         GameManager.instance.player1Turn = !GameManager.instance.player1Turn;
     }
 

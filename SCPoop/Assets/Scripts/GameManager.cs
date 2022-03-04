@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player1Deck.isPlayerOne = true;
+        player2Deck.isPlayerOne = false;
         player1Deck.Draw();   
         player2Deck.Draw();   
     }
@@ -32,12 +34,11 @@ public class GameManager : MonoBehaviour
         player2Deck.Discard();
     }
 
-    public bool CheckPlayerTurn(Card card)
+    public LayerMask GetPlayerLayerMask()
     {
-        if ((player1Turn && LayerMask.LayerToName(card.gameObject.layer) == "CardInHand1") ||
-            (!player1Turn && LayerMask.LayerToName(card.gameObject.layer) == "CardInHand2"))
-            return true;
-        return false;
+        if (player1Turn)
+            return LayerMask.NameToLayer("CardHandP1");
+        return LayerMask.NameToLayer("CardHandP1");
     }
 
     public void PlayCard(Card card)
