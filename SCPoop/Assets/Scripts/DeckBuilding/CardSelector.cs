@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class CardSelector : MonoBehaviour
 {
-    [HideInInspector]public Sprite selectorImage;
+    public Sprite selectorImage;
     public CardPreset cardPreset;
     bool selected = false;
+    [SerializeField] private GameObject selectTrinket;
     //public int deckCardCount = 0;
     
     // Start is called before the first frame update
     void Start()
     {
+        selectTrinket.SetActive(false);
         //assign image from CardPreset
     }
 
@@ -20,10 +22,13 @@ public class CardSelector : MonoBehaviour
         if (!selected)
         {
             selected = DeckBuilderManager.instance.AddCard(cardPreset);
+
         }
         else
         {
             selected = DeckBuilderManager.instance.RemoveCard(cardPreset);
         }
+
+        selectTrinket.SetActive(selected);
     }
 }
