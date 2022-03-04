@@ -10,35 +10,18 @@ public class UIDisplay : MonoBehaviour
     public TextMeshProUGUI txtEnemyHP;
     public TextMeshProUGUI txtPlayersPower;
     public TextMeshProUGUI txtEnemyPower;
-
-    private float currentPlayersHP;
-    private float currentEnemyHP;
-    private float playersPower;
-    private float enemyPower;
-
-    private void Start()
-    {
-        currentPlayersHP = LifeSystem.instance.playerLife;
-        currentEnemyHP = LifeSystem.instance.enemylife;
-        playersPower = Grid.instance.playerResult;
-        enemyPower = Grid.instance.enemyResult;
-
-        txtPlayersHP.text = "Life = " + currentPlayersHP;
-        txtEnemyHP.text = "Enemy Life = " + currentEnemyHP;
-        txtPlayersPower.text = "Combined Power = " + playersPower;
-        txtEnemyPower.text = "Enemy Power = " + enemyPower;
-    }
+    public TextMeshProUGUI txtPlayerTurn;
 
     private void Update()
     {
-        currentPlayersHP = LifeSystem.instance.playerLife;
-        currentEnemyHP = LifeSystem.instance.enemylife;
-        playersPower = Grid.instance.playerResult;
-        enemyPower = Grid.instance.enemyResult;
+        txtPlayersHP.text = "Life = " + LifeSystem.instance.playerLife;
+        txtEnemyHP.text = "Enemy Life = " + LifeSystem.instance.enemylife;
+        txtPlayersPower.text = "Combined Power = " + Grid.instance.playerResult;
+        txtEnemyPower.text = "Enemy Power = " + Grid.instance.enemyResult;
 
-        txtPlayersHP.text = "Life = " + currentPlayersHP;
-        txtEnemyHP.text = "Enemy Life = " + currentEnemyHP;
-        txtPlayersPower.text = "Combined Power = " + playersPower;
-        txtEnemyPower.text = "Enemy Power = " + enemyPower;
+        if (GameManager.instance.player1Turn)
+            txtPlayerTurn.text = "This is Player 1's Turn !";
+        else
+            txtPlayerTurn.text = "This is Player 2's Turn !";
     }
 }
