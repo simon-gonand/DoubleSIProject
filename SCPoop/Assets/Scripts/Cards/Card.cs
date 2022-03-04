@@ -9,6 +9,7 @@ public class Card : MonoBehaviour
     public GameObject arrow;
     public TextMesh symbol;
     public TextMesh power;
+    private float depthArrow = 0.3f;
     private float _tempPower;
     public float tempPower { get { return _tempPower; } }
     private bool _tempIsHeal;
@@ -46,47 +47,47 @@ public class Card : MonoBehaviour
                 {
                     case 0:
                         GameObject localArrowUp = Instantiate(arrow, self, false);
-                        localArrowUp.transform.localPosition = new Vector3(0, 0.01f, 4);
-                        localArrowUp.transform.localEulerAngles = new Vector3(90, -90, 0);
+                        localArrowUp.transform.localPosition = new Vector3(0, depthArrow, 4);
+                        localArrowUp.transform.localEulerAngles = new Vector3(-90, 90, 0);
                         break;
                     case 1:
                         GameObject localArrowDown = Instantiate(arrow, self, false);
-                        localArrowDown.transform.localPosition = new Vector3(0, 0.01f, -4);
-                        localArrowDown.transform.localEulerAngles = new Vector3(90, 90, 0);
+                        localArrowDown.transform.localPosition = new Vector3(0, depthArrow, -4);
+                        localArrowDown.transform.localEulerAngles = new Vector3(-90, -90, 0);
 
                         break;
                     case 2:
                         GameObject localArrowLeft = Instantiate(arrow, self, false);
-                        localArrowLeft.transform.localPosition = new Vector3(-4, 0.01f, 0);
-                        localArrowLeft.transform.localEulerAngles = new Vector3(90, 180, 0);
+                        localArrowLeft.transform.localPosition = new Vector3(-4, depthArrow, 0);
+                        localArrowLeft.transform.localEulerAngles = new Vector3(-90, 0, 0);
                         break;
                     case 3:
                         GameObject localArrowRight = Instantiate(arrow, self, false);
-                        localArrowRight.transform.localPosition = new Vector3(4, 0.01f, 0);
-                        localArrowRight.transform.localEulerAngles = new Vector3(90, 0, 0);
+                        localArrowRight.transform.localPosition = new Vector3(4, depthArrow, 0);
+                        localArrowRight.transform.localEulerAngles = new Vector3(-90, 0, 180);
 
                         break;
                     case 4:
                         GameObject localArrowUpRight = Instantiate(arrow, self, false);
-                        localArrowUpRight.transform.localPosition = new Vector3(4, 0.01f, 4);
-                        localArrowUpRight.transform.localEulerAngles = new Vector3(90, -45, 0);
+                        localArrowUpRight.transform.localPosition = new Vector3(4, depthArrow, 4);
+                        localArrowUpRight.transform.localEulerAngles = new Vector3(-90, 135, 0);
                         break;
                     case 5:
                         GameObject localArrowUpLeft = Instantiate(arrow, self, false);
-                        localArrowUpLeft.transform.localPosition = new Vector3(-4, 0.01f, 4);
-                        localArrowUpLeft.transform.localEulerAngles = new Vector3(90, -135, 0);
+                        localArrowUpLeft.transform.localPosition = new Vector3(-4, depthArrow, 4);
+                        localArrowUpLeft.transform.localEulerAngles = new Vector3(-90, 45, 0);
 
                         break;
                     case 6:
                         GameObject localArrowDownRight = Instantiate(arrow, self, false);
-                        localArrowDownRight.transform.localPosition = new Vector3(4, 0.01f, -4);
-                        localArrowDownRight.transform.localEulerAngles = new Vector3(90, 45, 0);
+                        localArrowDownRight.transform.localPosition = new Vector3(4, depthArrow, -4);
+                        localArrowDownRight.transform.localEulerAngles = new Vector3(-90, -135, 0);
 
                         break;
                     case 7:
                         GameObject localArrowDownLeft = Instantiate(arrow, self, false);
-                        localArrowDownLeft.transform.localPosition = new Vector3(-4, 0.01f, -4);
-                        localArrowDownLeft.transform.localEulerAngles = new Vector3(90, 135, 0);
+                        localArrowDownLeft.transform.localPosition = new Vector3(-4, depthArrow, -4);
+                        localArrowDownLeft.transform.localEulerAngles = new Vector3(-90, -45, 0);
                         break;
                     default:
                         break;
