@@ -8,8 +8,6 @@ public class CardDragMovements : MonoBehaviour
     private Transform self;
     public Card card;
 
-    private Vector3 offset;
-    private float zCoord;
     private float xOriginalRotation;
     private Vector3 originalPos;
 
@@ -27,10 +25,8 @@ public class CardDragMovements : MonoBehaviour
     public void InitDrag()
     {
         if (isSnapped) return;
-        originalPos = self.position;
-        zCoord = Camera.main.WorldToScreenPoint(self.position).z;
-        offset = self.position - GetMouseWorldPosition();
 
+        originalPos = self.position;
         xOriginalRotation = self.eulerAngles.x;
         self.rotation = Quaternion.Euler(0.0f, self.eulerAngles.y, self.eulerAngles.z);
     }
@@ -59,36 +55,27 @@ public class CardDragMovements : MonoBehaviour
         }
     }
 
-    public Vector3 GetMouseWorldPosition()
-    {
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = zCoord;
-
-        return Camera.main.ScreenToWorldPoint(mousePoint);
-    }
     // Update is called once per frame
     void Update()
     {
         if (!_isDragged) return;
 
-        Debug.DrawRay(GetMouseWorldPosition(), Camera.main.transform.forward * 100);
-
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (!isSnapped)
         {
-            Vector3 newPos = GetMouseWorldPosition() + offset;
-            float yOffset = newPos.y - self.position.y;
-            newPos.y = self.position.y;
-            newPos.z += yOffset;
+            RaycastHit hit;
+            Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("CardMovement"));
+            Vector3 newPos = hit.point;
             self.position = newPos;
         }
 
-        CheckSnapToSlot();
+        CheckSnapToSlot(ray);
     }
 
-    private void CheckSnapToSlot()
+    private void CheckSnapToSlot(Ray ray)
     {
         RaycastHit hit;
-        if (Physics.Raycast(GetMouseWorldPosition(), Camera.main.transform.forward, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Slot")))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Slot")))
         {
             if (isSnapped) return;
             if (!Grid.instance.IsSlotEmpty(hit.collider.transform)) return;

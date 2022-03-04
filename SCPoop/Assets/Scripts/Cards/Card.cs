@@ -38,7 +38,6 @@ public class Card : MonoBehaviour
 
     public void InitArrows()
     {
-        Debug.Log("test");
         for (int j = 0; j <= 7; ++j)
         {
             int mask = 1 << j;

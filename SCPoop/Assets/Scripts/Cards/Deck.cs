@@ -23,12 +23,6 @@ public class Deck : MonoBehaviour
     private Vector3 handPositionDrawing;
     private float movingT = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void Draw()
     {
         if (hand.Count < 6)

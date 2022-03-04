@@ -149,9 +149,9 @@ public class Grid : MonoBehaviour
             GameManager.instance.EndTurn();
         }
 
-        Debug.Log("Enemy power : " + enemyResult);
+        /*Debug.Log("Enemy power : " + enemyResult);
         Debug.Log("Player power : " + playerResult);
-        Debug.Log("Heal : " + heal);
+        Debug.Log("Heal : " + heal);*/
     }
 
     private void CheckDirection(int x, int y, int j)
@@ -209,7 +209,6 @@ public class Grid : MonoBehaviour
 
     private void Attack(float playerResult, float enemyResult)
     {
-        Debug.Log("�a passe en Player Attack");
         LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
         if(LifeSystem.instance.enemylife > 0)
         {
@@ -220,7 +219,8 @@ public class Grid : MonoBehaviour
     IEnumerator FightCoroutine(float time, float enemyResult)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("�a passe en Enemy Attack");
-        LifeSystem.instance.playerLife = LifeSystem.instance.enemylife - enemyResult;
+        LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult;
+        Debug.Log(LifeSystem.instance.playerLife);
+        Debug.Log(LifeSystem.instance.enemylife);
     }
 }
