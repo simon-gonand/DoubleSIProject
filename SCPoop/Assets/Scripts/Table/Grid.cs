@@ -35,6 +35,8 @@ public class Grid : MonoBehaviour
         cards[0][0] = debugEnemyHand[0];
         cards[1][0] = debugEnemyHand[1];
         cards[2][0] = debugEnemyHand[2];
+
+        CalculatePower();
     }
 
     public void BeginTurn()
@@ -47,6 +49,8 @@ public class Grid : MonoBehaviour
                 cards[x][y] = null;
             }
         }
+
+        CalculatePower();
     }
 
     public bool IsSlotEmpty(Transform t)
