@@ -14,4 +14,9 @@ public class SceneTravel : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
