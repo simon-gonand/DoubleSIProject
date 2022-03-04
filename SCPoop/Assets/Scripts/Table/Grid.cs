@@ -209,7 +209,6 @@ public class Grid : MonoBehaviour
 
     private void Attack(float playerResult, float enemyResult)
     {
-        Debug.Log("�a passe en Player Attack");
         LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
         if(LifeSystem.instance.enemylife > 0)
         {
