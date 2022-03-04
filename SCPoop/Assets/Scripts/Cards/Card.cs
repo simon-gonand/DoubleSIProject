@@ -100,7 +100,7 @@ public class Card : MonoBehaviour
         switch (stats.effect)
         {
             case CardPreset.Effect.Unchangeable:
-                symbol.text = "[]";
+                symbol.text = "[ ]";
                 break;
             case CardPreset.Effect.Equals:
                 symbol.text = "=";
