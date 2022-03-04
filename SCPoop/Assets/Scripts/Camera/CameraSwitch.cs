@@ -16,8 +16,19 @@ public class CameraSwitch : MonoBehaviour
 
     private int currentCamIndex;
 
+    public static CameraSwitch instance;
+
     private void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
         Initialize();
     }
 
@@ -84,6 +95,17 @@ public class CameraSwitch : MonoBehaviour
     {
         cameraBrainP1.enabled = !cameraBrainP1.enabled;
         cameraBrainP2.enabled = !cameraBrainP2.enabled;
+
+        if (cameraBrainP1.enabled)
+        {
+            cameraBrainP1.GetComponent<Camera>().targetDisplay = 0;
+            cameraBrainP2.GetComponent<Camera>().targetDisplay = 1;
+        }
+        else
+        {
+            cameraBrainP1.GetComponent<Camera>().targetDisplay = 1;
+            cameraBrainP2.GetComponent<Camera>().targetDisplay = 0;
+        }
 
         if (currentCamIndex != 1)
         {

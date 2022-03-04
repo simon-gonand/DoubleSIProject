@@ -37,9 +37,29 @@ public class Deck : MonoBehaviour
             handPositionDrawing = GetCardPosition();
             hand.Add(stack[index]);
             if (_isPlayerOne)
+            {
                 stack[index].gameObject.layer = LayerMask.NameToLayer("CardHandP1");
+                foreach (Transform child in stack[index].self)
+                {
+                    child.gameObject.layer = LayerMask.NameToLayer("CardHandP1");
+                    foreach(Transform child2 in child.transform)
+                    {
+                        child2.gameObject.layer = LayerMask.NameToLayer("CardHandP1");
+                    }
+                }
+            }
             else
+            {
                 stack[index].gameObject.layer = LayerMask.NameToLayer("CardHandP2");
+                foreach (Transform child in stack[index].self)
+                {
+                    child.gameObject.layer = LayerMask.NameToLayer("CardHandP2");
+                    foreach (Transform child2 in child.transform)
+                    {
+                        child2.gameObject.layer = LayerMask.NameToLayer("CardHandP2");
+                    }
+                }
+            }
             isCardDrawing = true;
             drawingCard = stack[index];
             drawingCard.isInStack = false;
@@ -86,7 +106,16 @@ public class Deck : MonoBehaviour
         hand.Remove(card);
         playedCard.Add(card);
         card.gameObject.layer = LayerMask.NameToLayer("Card");
+        foreach (Transform child in card.self)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer("Card");
+            foreach (Transform child2 in child.transform)
+            {
+                child2.gameObject.layer = LayerMask.NameToLayer("Card");
+            }
+        }
         GameManager.instance.player1Turn = !GameManager.instance.player1Turn;
+        CameraSwitch.instance.SwitchPlayerCamera();
     }
 
     public void Discard()

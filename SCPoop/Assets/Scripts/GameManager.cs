@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if (player1Turn)
             return LayerMask.NameToLayer("CardHandP1");
-        return LayerMask.NameToLayer("CardHandP1");
+        return LayerMask.NameToLayer("CardHandP2");
     }
 
     public void PlayCard(Card card)
