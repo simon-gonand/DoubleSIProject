@@ -11,6 +11,9 @@ public class Grid : MonoBehaviour
     private Card[][] _cards = new Card[3][];
     public Card[][] cards { get { return _cards; } }
 
+    public float playerResult = 0;
+    public float enemyResult = 0;
+
     public Card[] debugEnemyHand;
 
     private void Awake()
@@ -117,8 +120,8 @@ public class Grid : MonoBehaviour
             }
         }
 
-        float playerResult = 0;
-        float enemyResult = 0;
+        playerResult = 0;
+        enemyResult = 0;
         float heal = 0;
         bool isFull = true;
 

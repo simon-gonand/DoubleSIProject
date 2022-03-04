@@ -18,10 +18,7 @@ public class LifeSystem : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
-    }
 
-    public void Start()
-    {
         playerLife = playerMaxLife;
         enemylife = enemyMaxLife;
     }
