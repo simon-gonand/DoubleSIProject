@@ -2271,6 +2271,52 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5134036115503241720, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
   m_PrefabInstance: {fileID: 1498327898}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1560056505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1560056507}
+  - component: {fileID: 1560056506}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1560056506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560056505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00ca555b7d72b2439440e7655264e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Deck: {fileID: 0}
+  player2Deck: {fileID: 0}
+  player1Turn: 1
+--- !u!4 &1560056507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560056505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1491.9645, y: 348.7295, z: -473.2709}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1659715753
 PrefabInstance:
   m_ObjectHideFlags: 0

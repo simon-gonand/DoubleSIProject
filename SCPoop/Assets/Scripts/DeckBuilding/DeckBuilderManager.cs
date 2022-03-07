@@ -64,15 +64,28 @@ public class DeckBuilderManager : MonoBehaviour
             switch (playerID)
             {
                 case 1:
-                    //transmit to player 1's deck in GameManager
+                    //GameManager.instance.player1Deck.stack = new List<Card>(12);
+                    
+                    //for(int i =0; i<12; i++)
+                    //{
+                    //    GameManager.instance.player1Deck.stack[i].stats = deck[i];
+                    //}
+
                     playerID++;
                     playerIDText.text = playerID.ToString();
+                    
                     ClearDeck();
                     break;
 
                 case 2:
-                    //transmit to player 2's deck in GameManager
-                    SceneManager.LoadScene(0);
+                    //GameManager.instance.player2Deck.stack = new List<Card>(12);
+
+                    //for (int i = 0; i < 12; i++)
+                    //{
+                    //    GameManager.instance.player2Deck.stack[i].stats = deck[i];
+                    //}
+
+                    SceneManager.LoadScene(0); //Goto Game scene
                     break;
 
                 default:
