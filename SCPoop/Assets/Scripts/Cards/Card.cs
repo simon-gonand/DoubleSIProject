@@ -7,7 +7,8 @@ public class Card : MonoBehaviour
     public CardPreset stats;
     public Transform self;
     public GameObject arrow;
-    public TextMesh symbol;
+    public MeshFilter symbol;
+    public List<Mesh> symbols;
     public TextMesh power;
     public MeshRenderer mesh;
     private float depthArrow = 0.3f;
@@ -101,31 +102,31 @@ public class Card : MonoBehaviour
         switch (stats.effect)
         {
             case CardPreset.Effect.Unchangeable:
-                symbol.text = "[ ]";
+                symbol.mesh = symbols[0];
                 break;
             case CardPreset.Effect.Equals:
-                symbol.text = "=";
+                symbol.mesh = symbols[1];
                 break;
             case CardPreset.Effect.Plus:
-                symbol.text = "+";
+                symbol.mesh = symbols[2];
                 break;
             case CardPreset.Effect.Minus:
-                symbol.text = "-";
+                symbol.mesh = symbols[3];
                 break;
             case CardPreset.Effect.Multiply:
-                symbol.text = "x";
+                symbol.mesh = symbols[4];
                 break;
             case CardPreset.Effect.Divide:
-                symbol.text = "%";
+                symbol.mesh = symbols[5];
                 break;
             case CardPreset.Effect.Nullify:
-                symbol.text = "Ø";
+                symbol.mesh = symbols[6];
                 break;
             case CardPreset.Effect.Heal:
-                symbol.text = "<3";
+                symbol.mesh = symbols[7];
                 break;
             case CardPreset.Effect.None:
-                symbol.text = " ";
+                symbol.mesh = symbols[8];
                 return;
         }
     }
