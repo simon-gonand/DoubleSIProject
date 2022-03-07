@@ -78,6 +78,11 @@ public class Grid : MonoBehaviour
                 int x = i - y * 3;
                 cards[x][y] = card;
 
+                if (CheckSamePowerOnLine(y))
+                {
+                    Debug.Log("Buff power on line " + y);
+                }
+
                 CalculatePower();
             }
         }
@@ -229,5 +234,17 @@ public class Grid : MonoBehaviour
         LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult;
         Debug.Log(LifeSystem.instance.playerLife);
         Debug.Log(LifeSystem.instance.enemylife);
+    }
+
+    public bool CheckSamePowerOnLine(int line)
+    {
+        if (cards[0][line] == null) return false;
+        int power = cards[0][line].stats.power;
+        for (int i = 1; i < 3; ++i)
+        {
+            if (cards[i][line] == null) return false;
+            if (cards[i][line].stats.power != power) return false;
+        }
+        return true;
     }
 }

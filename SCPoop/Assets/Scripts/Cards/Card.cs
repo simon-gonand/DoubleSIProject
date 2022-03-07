@@ -33,7 +33,6 @@ public class Card : MonoBehaviour
         InitArrows();
         InitSign();
         InitPower();
-       
     }
 
     public void InitArrows()
