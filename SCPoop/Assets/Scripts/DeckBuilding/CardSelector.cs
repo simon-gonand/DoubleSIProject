@@ -7,6 +7,7 @@ public class CardSelector : MonoBehaviour
     public Sprite selectorImage;
     public CardPreset cardPreset;
     bool selected = false;
+    public bool IsSelected { get { return selected; } }
     [SerializeField] private GameObject selectTrinket;
     //public int deckCardCount = 0;
     
