@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a887a32ca6ce42439b1db074d49f9cb, type: 3}
-  m_Name: 10
+  m_Name: Roi de la Montagne
   m_EditorClassIdentifier: 
-  power: 2
-  direction: 66
-  effect: 4
+  power: 3
+  direction: 194
+  effect: 1
