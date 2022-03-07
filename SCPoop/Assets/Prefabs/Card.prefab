@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 7482394428414773566}
   - component: {fileID: 7482394428414773565}
   - component: {fileID: -4390332830360450270}
+  - component: {fileID: 7604719897335849401}
   m_Layer: 3
   m_Name: Card
   m_TagString: Untagged
@@ -221,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7482394428414773563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_Children:
   - {fileID: 5553012169354130308}
@@ -322,10 +323,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   self: {fileID: 7482394428414773562}
+  animator: {fileID: 7604719897335849401}
   arrow: {fileID: 8155145975976203624, guid: 2ba702587a05d804893c7a8f7b6d027a, type: 3}
   symbol: {fileID: 4910100236343738165}
   power: {fileID: 4187878007338882736}
   mesh: {fileID: 8097316595756479915}
+--- !u!95 &7604719897335849401
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7482394428414773563}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d101b62685b63e94e9a5e0b6117cd60b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7466659404252850479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 740a112accbe6d14294f27c61bff705e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 740a112accbe6d14294f27c61bff705e, type: 3}
       propertyPath: m_LocalPosition.y
