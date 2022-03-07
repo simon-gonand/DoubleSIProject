@@ -7,7 +7,7 @@ public class Card : MonoBehaviour
     public CardPreset stats;
     public Transform self;
     public GameObject arrow;
-    public MeshFilter symbol;
+    public MeshFilter symbol;    
     public List<Mesh> symbols;
     public TextMesh power;
     public MeshRenderer mesh;
@@ -36,6 +36,7 @@ public class Card : MonoBehaviour
         InitSign();
         InitPower();
         InitGraph();
+       
     }
 
     public void InitArrows()
