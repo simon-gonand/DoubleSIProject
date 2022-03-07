@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,23 +10,20 @@ public class GameManager : MonoBehaviour
     public Deck player1Deck;
     public Deck player2Deck;
 
+    public List<CardPreset> deck1;
+    public List<CardPreset> deck2;
     public bool player1Turn = true;
 
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
         else
             Destroy(gameObject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        player1Deck.isPlayerOne = true;
-        player2Deck.isPlayerOne = false;
-        player1Deck.Draw();   
-        player2Deck.Draw();   
     }
 
     public void EndTurn()
@@ -47,5 +45,28 @@ public class GameManager : MonoBehaviour
             player1Deck.PlayCard(card);
         else
             player2Deck.PlayCard(card);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "MainScene") return;
+        Deck[] deck = FindObjectsOfType<Deck>();
+        player1Deck = deck[0];
+        player2Deck = deck[1];
+
+        for (int i = 0; i < player1Deck.stack.Count; ++i)
+        {
+            player1Deck.stack[i].stats = deck1[i];
+        }
+
+        for (int i = 0; i < player2Deck.stack.Count; ++i)
+        {
+            player2Deck.stack[i].stats = deck2[i];
+        }
+
+        player1Deck.isPlayerOne = true;
+        player2Deck.isPlayerOne = false;
+        player1Deck.Draw();
+        player2Deck.Draw();
     }
 }

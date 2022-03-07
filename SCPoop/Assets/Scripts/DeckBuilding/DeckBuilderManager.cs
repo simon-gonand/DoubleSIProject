@@ -64,12 +64,10 @@ public class DeckBuilderManager : MonoBehaviour
             switch (playerID)
             {
                 case 1:
-                    //GameManager.instance.player1Deck.stack = new List<Card>(12);
-                    
-                    //for(int i =0; i<12; i++)
-                    //{
-                    //    GameManager.instance.player1Deck.stack[i].stats = deck[i];
-                    //}
+                    for (int i = 0; i < 12; i++)
+                    {
+                        GameManager.instance.deck1[i] = deck[i];
+                    }
 
                     playerID++;
                     playerIDText.text = playerID.ToString();
@@ -78,14 +76,12 @@ public class DeckBuilderManager : MonoBehaviour
                     break;
 
                 case 2:
-                    //GameManager.instance.player2Deck.stack = new List<Card>(12);
+                    for (int i = 0; i < 12; i++)
+                    {
+                        GameManager.instance.deck2[i] = deck[i];
+                    }
 
-                    //for (int i = 0; i < 12; i++)
-                    //{
-                    //    GameManager.instance.player2Deck.stack[i].stats = deck[i];
-                    //}
-
-                    SceneManager.LoadScene(0); //Goto Game scene
+                    SceneManager.LoadScene("MainScene"); //Goto Game scene
                     break;
 
                 default:
