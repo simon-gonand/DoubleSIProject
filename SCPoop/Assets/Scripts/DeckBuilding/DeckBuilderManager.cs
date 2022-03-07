@@ -83,7 +83,7 @@ public class DeckBuilderManager : MonoBehaviour
 
     public void ClearDeck()
     {
-        deck = new List<CardPreset>();
+        //deck = new List<CardPreset>();
         foreach(CardSelector cs in cardSelectors)
         {
             if (cs.IsSelected)
