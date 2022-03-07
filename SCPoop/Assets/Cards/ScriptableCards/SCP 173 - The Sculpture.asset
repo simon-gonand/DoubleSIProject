@@ -15,3 +15,4 @@ MonoBehaviour:
   power: 6
   direction: 192
   effect: 3
+  texture: {fileID: 2100000, guid: db921c7b9201def469dbfddde6d0444a, type: 2}
