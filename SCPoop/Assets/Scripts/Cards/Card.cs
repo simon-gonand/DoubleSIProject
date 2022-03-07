@@ -9,6 +9,7 @@ public class Card : MonoBehaviour
     public GameObject arrow;
     public TextMesh symbol;
     public TextMesh power;
+    public MeshRenderer mesh;
     private float depthArrow = 0.3f;
     private float _tempPower;
     public float tempPower { get { return _tempPower; } }
@@ -33,6 +34,7 @@ public class Card : MonoBehaviour
         InitArrows();
         InitSign();
         InitPower();
+        InitGraph();
        
     }
 
@@ -131,6 +133,10 @@ public class Card : MonoBehaviour
     public void InitPower()
     {
         power.text = stats.power.ToString();
+    }
+    public void InitGraph()
+    {
+        mesh.material = stats.texture;
     }
 
     public void ApplyEffect(CardPreset.Effect effect, float value)
