@@ -308,6 +308,7 @@ MonoBehaviour:
   self: {fileID: 7482394428414773562}
   card: {fileID: -4390332830360450270}
   isSnapped: 0
+  hoverHeight: 0.15
 --- !u!114 &-4390332830360450270
 MonoBehaviour:
   m_ObjectHideFlags: 0

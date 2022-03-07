@@ -16,6 +16,10 @@ public class CardDragMovements : MonoBehaviour
 
     public bool isSnapped;
 
+    public bool isHover { get; private set; }
+
+    [SerializeField] private float hoverHeight = 0.1f;
+
     public void Initialize()
     {
         _isDragged = false;
@@ -25,8 +29,8 @@ public class CardDragMovements : MonoBehaviour
     public void InitDrag()
     {
         if (isSnapped) return;
-
         originalPos = self.position;
+
         xOriginalRotation = self.eulerAngles.x;
         self.rotation = Quaternion.Euler(0.0f, self.eulerAngles.y, self.eulerAngles.z);
     }
@@ -91,5 +95,17 @@ public class CardDragMovements : MonoBehaviour
             upPos.y = originalPos.y;
             self.position = upPos;
         }
+    }
+
+    public void OnBeginHover()
+    {
+        isHover = true;
+        self.localPosition += Vector3.up * hoverHeight;
+    }
+
+    public void OnEndHover()
+    {
+        isHover = false;
+        self.localPosition -= Vector3.up * hoverHeight;
     }
 }
