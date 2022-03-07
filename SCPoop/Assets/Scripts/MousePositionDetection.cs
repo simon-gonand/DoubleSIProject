@@ -26,7 +26,7 @@ public class MousePositionDetection : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = CameraSwitch.instance.currentCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << GameManager.instance.GetPlayerLayerMask()))
             {

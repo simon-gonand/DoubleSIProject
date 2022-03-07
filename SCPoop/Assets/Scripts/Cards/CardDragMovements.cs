@@ -60,7 +60,7 @@ public class CardDragMovements : MonoBehaviour
     {
         if (!_isDragged) return;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = CameraSwitch.instance.currentCamera.ScreenPointToRay(Input.mousePosition);
         if (!isSnapped)
         {
             RaycastHit hit;

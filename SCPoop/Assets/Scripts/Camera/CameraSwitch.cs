@@ -10,6 +10,8 @@ public class CameraSwitch : MonoBehaviour
     [SerializeField] private CinemachineBrain cameraBrainP1;
     [SerializeField] private CinemachineBrain cameraBrainP2;
 
+    public Camera currentCamera;
+
     [Header("Stats")]
     [SerializeField] private int camnbr;
     [SerializeField] private int startCamIndex = 1;
@@ -36,6 +38,8 @@ public class CameraSwitch : MonoBehaviour
     {
         currentCamIndex = startCamIndex;
         cameraBrainP2.enabled = false;
+
+        currentCamera = Camera.main;
 
         SwitchCam();
     }
@@ -98,13 +102,21 @@ public class CameraSwitch : MonoBehaviour
 
         if (cameraBrainP1.enabled)
         {
-            cameraBrainP1.GetComponent<Camera>().targetDisplay = 0;
-            cameraBrainP2.GetComponent<Camera>().targetDisplay = 1;
+            Camera cam1 = cameraBrainP1.GetComponent<Camera>();
+            Camera cam2 = cameraBrainP2.GetComponent<Camera>();
+            cam1.targetDisplay = 0;
+            cam2.targetDisplay = 1;
+
+            currentCamera = cam1;
         }
         else
         {
-            cameraBrainP1.GetComponent<Camera>().targetDisplay = 1;
-            cameraBrainP2.GetComponent<Camera>().targetDisplay = 0;
+            Camera cam1 = cameraBrainP1.GetComponent<Camera>();
+            Camera cam2 = cameraBrainP2.GetComponent<Camera>();
+            cam1.targetDisplay = 1;
+            cam2.targetDisplay = 0;
+
+            currentCamera = cam2;
         }
 
         if (currentCamIndex != 1)
