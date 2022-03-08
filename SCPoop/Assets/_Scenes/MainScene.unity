@@ -3968,19 +3968,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3695ae481dca674ba6a2838f3ff4fe5, type: 2}
   - {fileID: 11400000, guid: 628f7083db63af84ab1641d9ce831ca3, type: 2}
   - {fileID: 11400000, guid: 9b2576d27c3620d4999f731c95bd2d7e, type: 2}
-  deck2:
-  - {fileID: 11400000, guid: edf618cd2b870bd4da90489c8006c6d1, type: 2}
-  - {fileID: 11400000, guid: f720f44ee1103c24fa49bcf3e9d0b383, type: 2}
-  - {fileID: 11400000, guid: ce543ed227c7dd146a30996dfc0cb48a, type: 2}
-  - {fileID: 11400000, guid: 7ab60dbc1ba596649873826dfb025319, type: 2}
-  - {fileID: 11400000, guid: f870b0a8f8fa9c34ca98c7f00b422ec0, type: 2}
-  - {fileID: 11400000, guid: 942014ee87ac3694db6ced880998e7d5, type: 2}
-  - {fileID: 11400000, guid: a231e0345d78f7246ae3d902dc8f4d71, type: 2}
-  - {fileID: 11400000, guid: a30e4f29155997c48b305590c621a0cf, type: 2}
-  - {fileID: 11400000, guid: 5025f03dba1452e4f8d691d20a7bd22d, type: 2}
-  - {fileID: 11400000, guid: 1709309d01c3f8d44bdd943b37dc6009, type: 2}
-  - {fileID: 11400000, guid: c30ab0b2d7a1f9044bde1acf7b671bb4, type: 2}
-  - {fileID: 11400000, guid: 9119401f1c16d05458cfd6ef83afcb34, type: 2}
   stateDrivenCamera: {fileID: 16978899}
   player1Turn: 1
 --- !u!4 &1576754657
@@ -4427,17 +4414,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836240377}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1849945114 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3710186089290607254, guid: d66e18ff57577cb46bc0d600e3690fc6, type: 3}
-  m_PrefabInstance: {fileID: 767605312}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325a6a3050a061e4b8aa51386c30e8e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1851562122
 GameObject:
   m_ObjectHideFlags: 0
