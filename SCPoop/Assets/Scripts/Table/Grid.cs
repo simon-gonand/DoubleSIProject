@@ -16,6 +16,11 @@ public class Grid : MonoBehaviour
 
     public Card[] debugEnemyHand;
 
+    public GameObject electroLinkVerticalEnemy;
+    public GameObject electroLinkDiagonalEnemy;
+    public GameObject electroLinkHorizontalEnemy;
+    public float depthlink = 0.1f;
+
     private void Awake()
     {
         if (instance == null)
@@ -37,6 +42,73 @@ public class Grid : MonoBehaviour
         cards[2][0] = debugEnemyHand[2];
 
         CalculatePower();
+        InitEnemyTrails();
+
+        
+    }
+
+    public void InitEnemyTrails()
+    {
+        for (int i = 0; i < debugEnemyHand.Length; ++i)
+        {
+
+
+            for (int j = 0; j <= 7; ++j)
+            {
+                int mask = 1 << j;
+                if ((mask & debugEnemyHand[i].stats.direction) == mask)
+                {
+                    switch (j)
+                    {
+
+                        case 1:
+                            GameObject localLinkDown = Instantiate(electroLinkVerticalEnemy, debugEnemyHand[i].gameObject.transform, false);
+                            localLinkDown.transform.localPosition = new Vector3(0, depthlink, -14);
+
+                            break;
+                        case 2:
+                            if (i>=1)
+                            {
+                                GameObject localLinkLeft = Instantiate(electroLinkHorizontalEnemy, debugEnemyHand[i].gameObject.transform, false);
+                                localLinkLeft.transform.localPosition = new Vector3(-11, depthlink, 0);
+                            }
+                            
+                            break;
+                        case 3:
+                            if (i <= 1)
+                            {
+                                GameObject localLinkRight = Instantiate(electroLinkHorizontalEnemy, debugEnemyHand[i].gameObject.transform, false);
+                                localLinkRight.transform.localPosition = new Vector3(11, depthlink, 0);
+
+                            }
+
+                            break;
+
+                        case 6:
+                            if (i <= 1)
+                            {
+                                GameObject localLinkDownRight = Instantiate(electroLinkHorizontalEnemy, debugEnemyHand[i].gameObject.transform, false);
+                                localLinkDownRight.transform.localPosition = new Vector3(11, depthlink, -14);
+                                localLinkDownRight.transform.localEulerAngles = new Vector3(0, -28, 0);
+                            }
+
+                            break;
+                        case 7:
+                            if (i >= 1)
+                            {
+                                GameObject localLinkDownLeft = Instantiate(electroLinkHorizontalEnemy, debugEnemyHand[i].gameObject.transform, false);
+                                localLinkDownLeft.transform.localPosition = new Vector3(-11, depthlink, -14);
+                                localLinkDownLeft.transform.localEulerAngles = new Vector3(0, -28, 0);
+                                    }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+    
+        
     }
 
     public void BeginTurn()
