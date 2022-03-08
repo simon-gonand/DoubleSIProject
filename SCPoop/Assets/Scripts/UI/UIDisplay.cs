@@ -21,11 +21,11 @@ public class UIDisplay : MonoBehaviour
 
     private void Start()
     {
-        maxWidth = timeBarTransform.sizeDelta.x;
-        DisplayTime(timer);
+        //maxWidth = timeBarTransform.sizeDelta.x;
+        //DisplayTime(timer);
     }
 
-    private void Update()
+    /*private void Update()
     {
         txtPlayersHP.text = "Life = " + LifeSystem.instance.playerLife;
         txtEnemyHP.text = "Enemy Life = " + LifeSystem.instance.enemylife;
@@ -35,7 +35,7 @@ public class UIDisplay : MonoBehaviour
         if(timer > 0)
         {
             timer -= Time.deltaTime;
-            DisplayTime(timer);
+            //DisplayTime(timer);
             float amount = timer / maxTimer;
             timeBarTransform.sizeDelta = new Vector2(amount * maxWidth, timeBarTransform.sizeDelta.y);
         }
@@ -44,7 +44,7 @@ public class UIDisplay : MonoBehaviour
             txtPlayerTurn.text = "This is Player 1's Turn !";
         else
             txtPlayerTurn.text = "This is Player 2's Turn !";
-    }
+    }*/
 
     void DisplayTime(float timeToDisplay)
     {

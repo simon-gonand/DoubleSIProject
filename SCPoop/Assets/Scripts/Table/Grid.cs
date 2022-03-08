@@ -68,24 +68,16 @@ public class Grid : MonoBehaviour
         return true;
     }
 
-    public void AddCard(Card card)
+    public void AddCard(Card card, int x, int y)
     {
-        for (int i = 0; i < slots.Count; ++i)
+        cards[x][y] = card;
+
+        if (CheckSamePowerOnLine(y))
         {
-            if (Vector3.Distance(slots[i].position, card.self.position) < 0.01f)
-            {
-                int y = i / 3;
-                int x = i - y * 3;
-                cards[x][y] = card;
-
-                if (CheckSamePowerOnLine(y))
-                {
-                    Debug.Log("Buff power on line " + y);
-                }
-
-                CalculatePower();
-            }
+            Debug.Log("Buff power on line " + y);
         }
+
+        CalculatePower();
     }
 
     public void CalculatePower()

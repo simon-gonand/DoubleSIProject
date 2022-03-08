@@ -29,6 +29,46 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    IEnumerator Start()
+    {
+        for (;;)
+        {
+            yield return new WaitForSeconds(3.0f);
+            TimerEnd();
+        }
+    }
+
+    public void TimerEnd()
+    {
+        List<List<int>> freeSlots = new List<List<int>>();
+        for (int i = 0; i < 3; ++i)
+        {
+            freeSlots.Add(new List<int>());
+            for (int j = 1; j < 3; ++j)
+            {
+                if (Grid.instance.cards[i][j] == null)
+                {
+                    freeSlots[freeSlots.Count - 1].Add(j);
+                    Debug.Log(i + " ; " + j);
+                }
+            }
+        }
+        bool isLineEmpty = true;
+        int x = 0;
+        while (isLineEmpty)
+        {
+            x = Random.Range(0, 3);
+            if (freeSlots[x].Count != 0)
+                isLineEmpty = false;
+        }
+        if (player1Turn)
+        {   
+            StartCoroutine(player1Deck.PlayRandomCard(x, freeSlots[x][Random.Range(0, freeSlots[x].Count)]));
+        }
+        else
+            StartCoroutine(player2Deck.PlayRandomCard(x, freeSlots[x][Random.Range(0, freeSlots[x].Count)]));
+    }
+
     public void EndTurn()
     {
         player1Deck.Discard();

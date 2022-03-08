@@ -101,6 +101,13 @@ public class Deck : MonoBehaviour
         return Vector3.positiveInfinity;
     }
 
+    public IEnumerator PlayRandomCard(int x, int y)
+    {
+        Card card = hand[Random.Range(0, hand.Count)];
+        PlayCard(card);
+        yield return StartCoroutine(card.PlayCard(x, y));
+    }
+
     public void PlayCard(Card card)
     {
         hand.Remove(card);
@@ -116,6 +123,7 @@ public class Deck : MonoBehaviour
         }
         GameManager.instance.player1Turn = !GameManager.instance.player1Turn;
         CameraSwitch.instance.SwitchPlayerCamera();
+        // Restart timer
     }
 
     public void Discard()

@@ -43,7 +43,16 @@ public class CardDragMovements : MonoBehaviour
         if (isSnapped)
         {
             GameManager.instance.PlayCard(card);
-            Grid.instance.AddCard(card);
+            for (int i = 0; i < Grid.instance.slots.Count; ++i)
+            {
+                if (Vector3.Distance(Grid.instance.slots[i].position, card.self.position) < 0.01f)
+                {
+                    int y = i / 3;
+                    int x = i - y * 3;
+
+                    Grid.instance.AddCard(card, x, y);
+                }
+            }
             return;
         }
         self.rotation = Quaternion.Euler(xOriginalRotation, self.eulerAngles.y, self.eulerAngles.z);

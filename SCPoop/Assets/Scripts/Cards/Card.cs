@@ -98,6 +98,7 @@ public class Card : MonoBehaviour
             }
         }
     }
+
     public void InitSign()
     {
         switch (stats.effect)
@@ -175,5 +176,23 @@ public class Card : MonoBehaviour
         }
 
         if (_tempPower < 0.0f) _tempPower = 0.0f;
+    }
+
+    public IEnumerator PlayCard(int x, int y)
+    {
+        float t = 0.0f;
+        int index = y * 3 + x;
+        Vector3 startPos = self.position;
+        Vector3 endPos = Grid.instance.slots[index].position;
+        Quaternion startRot = self.rotation;
+        Quaternion endRot = Quaternion.Euler(Vector3.zero);
+        while (t < 1.0f)
+        {
+            t += Time.deltaTime * 10.0f;
+            self.position = Vector3.Lerp(startPos, endPos, t);
+            self.rotation = Quaternion.Slerp(startRot, endRot, t);
+            yield return null;
+        }        
+        Grid.instance.AddCard(this, x, y);
     }
 }
