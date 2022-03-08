@@ -214,7 +214,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: e03da70a753a67a41b229c1d852bc096, type: 2}
   m_ParentHash:
   - m_Hash: 1287591479
     m_ParentHash: 756556552
@@ -254,6 +254,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camAnimator: {fileID: 3710186089290607257}
+  cameraBrainP1: {fileID: 0}
+  cameraBrainP2: {fileID: 0}
+  currentCamera: {fileID: 0}
   camnbr: 3
   startCamIndex: 1
 --- !u!1 &3710186089373303111

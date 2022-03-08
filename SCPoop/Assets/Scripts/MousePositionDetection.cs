@@ -13,7 +13,6 @@ public class MousePositionDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -36,9 +35,10 @@ public class MousePositionDetection : MonoBehaviour
         {
             CardDragMovements card = hit.collider.gameObject.GetComponent<CardDragMovements>();
 
-            if (!Input.GetMouseButton(0) && canHover)
+            if (!Input.GetMouseButton(0) && canHover && !GameManager.instance.player1Deck.isDrawing && !GameManager.instance.player2Deck.isDrawing && !GameManager.instance.stateDrivenCamera.IsBlending)
             {
-                EndHover();
+                if (card != hoveredCard)
+                    EndCurrentHover();
 
                 hoveredCard = card;
 
@@ -52,7 +52,7 @@ public class MousePositionDetection : MonoBehaviour
             {
                 if (card != null)
                 {
-                    EndHover();
+                    EndCurrentHover();
 
                     if (card.isSnapped || card.card.isInStack) return;
                     draggingCard = card;
@@ -62,11 +62,16 @@ public class MousePositionDetection : MonoBehaviour
             }
         }
         else
-            EndHover();
+            EndCurrentHover();
+
+        if (GameManager.instance.stateDrivenCamera.IsBlending)
+        {
+            EndCurrentHover();
+        }
 
     }
 
-    private void EndHover()
+    private void EndCurrentHover()
     {
         if (hoveredCard != null)
         {

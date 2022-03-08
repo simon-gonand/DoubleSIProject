@@ -19,6 +19,9 @@ public class CardDragMovements : MonoBehaviour
     public bool isHover { get; private set; }
 
     [SerializeField] private float hoverHeight = 0.1f;
+    [SerializeField] private float hoverUp = 0.05f;
+
+    public Vector3 hoverOriginalPos;
 
     public void Initialize()
     {
@@ -100,12 +103,16 @@ public class CardDragMovements : MonoBehaviour
     public void OnBeginHover()
     {
         isHover = true;
-        self.localPosition += Vector3.up * hoverHeight;
+
+        hoverOriginalPos = self.position;
+
+        self.position += (Camera.main.transform.position - self.position).normalized * hoverHeight;
+        self.position += self.forward * hoverUp;
     }
 
     public void OnEndHover()
     {
         isHover = false;
-        self.localPosition -= Vector3.up * hoverHeight;
+        self.position = hoverOriginalPos;
     }
 }

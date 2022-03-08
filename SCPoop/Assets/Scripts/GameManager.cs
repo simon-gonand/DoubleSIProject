@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public Deck player1Deck;
     public Deck player2Deck;
+
+    public CinemachineStateDrivenCamera stateDrivenCamera;
 
     public bool player1Turn = true;
 

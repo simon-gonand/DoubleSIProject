@@ -20,7 +20,7 @@ public class Deck : MonoBehaviour
     private bool _isPlayerOne;
     public bool isPlayerOne { set { _isPlayerOne = value; } }
 
-    private bool isDrawing = false;
+    public bool isDrawing = false;
     private bool isCardDrawing = false;
     private Card drawingCard;
     private Vector3 handPositionDrawing;
