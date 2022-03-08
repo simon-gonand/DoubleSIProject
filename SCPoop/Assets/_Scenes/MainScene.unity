@@ -353,6 +353,10 @@ MonoBehaviour:
   - {fileID: 1031595842}
   - {fileID: 1617531905}
   - {fileID: 1955689901}
+  electroLinkVerticalEnemy: {fileID: 7580070920142941956, guid: 367a0d019a0db624d9abe75256c613eb, type: 3}
+  electroLinkDiagonalEnemy: {fileID: 8069938519378881483, guid: 361da3c446c0907439db5e18e58b88f0, type: 3}
+  electroLinkHorizontalEnemy: {fileID: 2318196684324908612, guid: dfaab42eae515fc4cb6756d65dbde9ac, type: 3}
+  depthlink: 0.1
 --- !u!65 &132073067
 BoxCollider:
   m_ObjectHideFlags: 0
