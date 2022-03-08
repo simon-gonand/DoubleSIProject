@@ -16,3 +16,5 @@ MonoBehaviour:
   direction: 3
   effect: 6
   texture: {fileID: 2100000, guid: 30a9aab497a8d5046bd7158b70bb3a6e, type: 2}
+  scpMesh: {fileID: 5909250936702842410, guid: 189fcd514505b5b44915d606b6dbc90d, type: 3}
+  scpMaterial: {fileID: 2100000, guid: 880a82b5b67373c428b023923877a0e6, type: 2}

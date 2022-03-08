@@ -10,6 +10,8 @@ public class CardPresetEditor : Editor
     private SerializedProperty effect;
     private SerializedProperty direction;
     private SerializedProperty material;
+    private SerializedProperty scpMesh;
+    private SerializedProperty scpMaterial;
 
     private string[] directionStr = { "Up", "Down", "Left", "Right", "Up Right", "Up Left", "Down Right", "Down Left" };
 
@@ -19,6 +21,9 @@ public class CardPresetEditor : Editor
         effect = serializedObject.FindProperty("effect");
         direction = serializedObject.FindProperty("direction");
         material = serializedObject.FindProperty("texture");
+        scpMesh = serializedObject.FindProperty("scpMesh");
+        scpMaterial = serializedObject.FindProperty("scpMaterial");
+
     }
 
     public override void OnInspectorGUI()
@@ -27,6 +32,8 @@ public class CardPresetEditor : Editor
         EditorGUILayout.PropertyField(material);
         EditorGUILayout.PropertyField(power);
         EditorGUILayout.PropertyField(effect);
+        EditorGUILayout.PropertyField(scpMesh);
+        EditorGUILayout.PropertyField(scpMaterial);
         direction.intValue = EditorGUILayout.MaskField("Direction", direction.intValue, directionStr);
 
         serializedObject.ApplyModifiedProperties();

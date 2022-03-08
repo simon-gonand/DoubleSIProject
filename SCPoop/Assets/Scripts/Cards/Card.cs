@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    public MeshSpawner meshSpawner;
+
     public CardPreset stats;
     public Transform self;
     public GameObject arrow;

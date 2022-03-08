@@ -77,6 +77,7 @@ public class Grid : MonoBehaviour
                 int y = i / 3;
                 int x = i - y * 3;
                 cards[x][y] = card;
+                card.meshSpawner.SpawnMesh();
 
                 if (CheckSamePowerOnLine(y))
                 {
