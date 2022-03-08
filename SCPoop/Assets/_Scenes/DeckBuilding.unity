@@ -406,6 +406,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: c30ab0b2d7a1f9044bde1acf7b671bb4, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &193221645 stripped
@@ -512,6 +516,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 4be3c95a44a54d54896c943b2f618e9f, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &203682218 stripped
@@ -687,7 +695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1035,6 +1043,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 628f7083db63af84ab1641d9ce831ca3, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &509357496 stripped
@@ -1207,6 +1219,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 5025f03dba1452e4f8d691d20a7bd22d, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &773399169 stripped
@@ -1785,6 +1801,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: afd2981959a026744b1ebf764a9b1c1c, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &1270737453 stripped
@@ -1880,7 +1900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2060,6 +2080,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 1709309d01c3f8d44bdd943b37dc6009, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &1442810215 stripped
@@ -2292,6 +2316,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: c3695ae481dca674ba6a2838f3ff4fe5, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &1498327899 stripped
@@ -2331,31 +2359,31 @@ MonoBehaviour:
   player1Deck: {fileID: 0}
   player2Deck: {fileID: 0}
   deck1:
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   deck2:
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
-  - {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   player1Turn: 1
 --- !u!4 &1560056507
 Transform:
@@ -2470,6 +2498,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 9b2576d27c3620d4999f731c95bd2d7e, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &1659715754 stripped
@@ -2576,6 +2608,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 96cfa8e7afad86a4bb0ff6adc74e0868, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &1674057370 stripped
@@ -2687,6 +2723,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 9119401f1c16d05458cfd6ef83afcb34, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &1720676153 stripped
@@ -2793,6 +2833,10 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 5e89cfd5ebedd55498bc6a6cd1bf0a27, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &1773409671 stripped
@@ -3047,5 +3091,9 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: a30e4f29155997c48b305590c621a0cf, type: 2}
+    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
