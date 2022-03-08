@@ -106,6 +106,7 @@ public class Deck : MonoBehaviour
         Card card = hand[Random.Range(0, hand.Count)];
         PlayCard(card);
         yield return StartCoroutine(card.PlayCard(x, y));
+        //RestartTimer
     }
 
     public void PlayCard(Card card)
@@ -123,7 +124,7 @@ public class Deck : MonoBehaviour
         }
         GameManager.instance.player1Turn = !GameManager.instance.player1Turn;
         CameraSwitch.instance.SwitchPlayerCamera();
-        // Restart timer
+        Timer.instance.ResetTime();
     }
 
     public void Discard()

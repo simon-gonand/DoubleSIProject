@@ -29,15 +29,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    IEnumerator Start()
-    {
-        for (;;)
-        {
-            yield return new WaitForSeconds(3.0f);
-            TimerEnd();
-        }
-    }
-
     public void TimerEnd()
     {
         List<List<int>> freeSlots = new List<List<int>>();
@@ -49,7 +40,6 @@ public class GameManager : MonoBehaviour
                 if (Grid.instance.cards[i][j] == null)
                 {
                     freeSlots[freeSlots.Count - 1].Add(j);
-                    Debug.Log(i + " ; " + j);
                 }
             }
         }
