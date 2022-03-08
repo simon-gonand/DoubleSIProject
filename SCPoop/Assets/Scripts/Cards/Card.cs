@@ -141,7 +141,9 @@ public class Card : MonoBehaviour
     public void InitPower()
     {
         power.text = stats.power.ToString();
-    }    public void InitGraph()
+    }    
+    
+    public void InitGraph()
     {
         mesh.GetPropertyBlock(propBlock);
 
