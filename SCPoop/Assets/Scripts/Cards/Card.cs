@@ -21,6 +21,8 @@ public class Card : MonoBehaviour
     private bool _isInStack = true;
     public bool isInStack { get { return _isInStack; }  set { _isInStack = value; } }
 
+    private MaterialPropertyBlock propBlock;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,8 @@ public class Card : MonoBehaviour
 
     public void Init()
     {
+        propBlock = new MaterialPropertyBlock();
+
         _tempPower = stats.power;
         tempIsUnchangeable = false;
         _tempIsHeal = false;
@@ -134,10 +138,13 @@ public class Card : MonoBehaviour
     public void InitPower()
     {
         power.text = stats.power.ToString();
-    }
-    public void InitGraph()
+    }    public void InitGraph()
     {
-        mesh.material = stats.texture;
+        mesh.GetPropertyBlock(propBlock);
+
+        propBlock.SetTexture("MainTex", stats.texture);
+
+        mesh.SetPropertyBlock(propBlock);
     }
 
     public void ApplyEffect(CardPreset.Effect effect, float value)
