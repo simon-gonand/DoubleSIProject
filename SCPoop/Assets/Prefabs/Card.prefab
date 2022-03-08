@@ -394,6 +394,7 @@ MonoBehaviour:
   isSnapped: 0
   hoverHeight: 0.2
   hoverUp: 0.1
+  hoverOriginalPos: {x: 0, y: 0, z: 0}
 --- !u!114 &-4390332830360450270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   self: {fileID: 7482394428414773562}
-  animator: {fileID: 7604719897335849401}
   arrow: {fileID: 8155145975976203624, guid: 2ba702587a05d804893c7a8f7b6d027a, type: 3}
   symbol: {fileID: 5994468705503486789}
   symbols:
@@ -433,7 +433,7 @@ Animator:
   m_GameObject: {fileID: 7482394428414773563}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d101b62685b63e94e9a5e0b6117cd60b, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -504,7 +504,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 740a112accbe6d14294f27c61bff705e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 60dc4320a80c2a24fbf3b3eb1febfe92, type: 2}
+      objectReference: {fileID: 2100000, guid: 8e306f39c8043ec48ae0e04d38c0e0e3, type: 2}
     - target: {fileID: 919132149155446097, guid: 740a112accbe6d14294f27c61bff705e, type: 3}
       propertyPath: m_Name
       value: SM_carte
