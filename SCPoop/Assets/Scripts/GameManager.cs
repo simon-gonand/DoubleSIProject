@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "MainScene") return;
+        if (scene.name != "MainScene" && scene.name != "LouisVScene") return;
         Deck[] deck = FindObjectsOfType<Deck>();
         player1Deck = deck[0];
         player2Deck = deck[1];

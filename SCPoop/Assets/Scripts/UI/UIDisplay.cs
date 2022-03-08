@@ -15,29 +15,37 @@ public class UIDisplay : MonoBehaviour
 
     public RectTransform timeBarTransform;
 
+    public RectTransform playerHealthBar;
+    public RectTransform enemyHealthBar;
+
     public float timer = 30;
     private float maxTimer = 30;
-    private float maxWidth;
+    private float maxTimeWidth;
+    private float maxPlayerHPWidth;
+    private float maxEnemyHPWidth;
 
     private void Start()
     {
-        maxWidth = timeBarTransform.sizeDelta.x;
+        maxTimeWidth = timeBarTransform.sizeDelta.x;
+        maxPlayerHPWidth = playerHealthBar.sizeDelta.x;
+        maxEnemyHPWidth = enemyHealthBar.sizeDelta.x;
         DisplayTime(timer);
     }
 
     private void Update()
     {
-        txtPlayersHP.text = "Life = " + LifeSystem.instance.playerLife;
-        txtEnemyHP.text = "Enemy Life = " + LifeSystem.instance.enemylife;
         txtPlayersPower.text = "Combined Power = " + Grid.instance.playerResult;
         txtEnemyPower.text = "Enemy Power = " + Grid.instance.enemyResult;
 
-        if(timer > 0)
+        playerHealthBar.sizeDelta = new Vector2(LifeSystem.instance.playerLife / LifeSystem.instance.playerMaxLife * maxPlayerHPWidth, playerHealthBar.sizeDelta.y);
+        enemyHealthBar.sizeDelta = new Vector2(LifeSystem.instance.enemylife / LifeSystem.instance.enemyMaxLife * maxEnemyHPWidth, enemyHealthBar.sizeDelta.y);
+
+        if (timer > 0)
         {
             timer -= Time.deltaTime;
             DisplayTime(timer);
             float amount = timer / maxTimer;
-            timeBarTransform.sizeDelta = new Vector2(amount * maxWidth, timeBarTransform.sizeDelta.y);
+            timeBarTransform.sizeDelta = new Vector2(amount * maxTimeWidth, timeBarTransform.sizeDelta.y);
         }
 
         if (GameManager.instance.player1Turn)
