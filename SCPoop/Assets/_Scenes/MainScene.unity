@@ -3763,6 +3763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Deck: {fileID: 503325675}
   player2Deck: {fileID: 975693608}
+  deck1: []
+  deck2: []
   player1Turn: 1
 --- !u!4 &1576754657
 Transform:
