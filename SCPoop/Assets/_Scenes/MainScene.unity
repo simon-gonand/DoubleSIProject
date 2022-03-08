@@ -3968,7 +3968,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3695ae481dca674ba6a2838f3ff4fe5, type: 2}
   - {fileID: 11400000, guid: 628f7083db63af84ab1641d9ce831ca3, type: 2}
   - {fileID: 11400000, guid: 9b2576d27c3620d4999f731c95bd2d7e, type: 2}
-  stateDrivenCamera: {fileID: 1849945114}
+  stateDrivenCamera: {fileID: 16978899}
   player1Turn: 1
 --- !u!4 &1576754657
 Transform:
@@ -4414,17 +4414,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836240377}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1849945114 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3710186089290607254, guid: d66e18ff57577cb46bc0d600e3690fc6, type: 3}
-  m_PrefabInstance: {fileID: 767605312}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325a6a3050a061e4b8aa51386c30e8e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1851562122
 GameObject:
   m_ObjectHideFlags: 0
