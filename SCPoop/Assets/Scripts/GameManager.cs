@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public List<CardPreset> deck1;
     public List<CardPreset> deck2;
+    public CinemachineStateDrivenCamera stateDrivenCamera;
+
     public bool player1Turn = true;
 
     private void Awake()
