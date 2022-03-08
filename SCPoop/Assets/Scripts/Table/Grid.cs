@@ -146,10 +146,15 @@ public class Grid : MonoBehaviour
 
         if (CheckSamePowerOnLine(y))
         {
-            Debug.Log("Buff power on line " + y);
+            if (Vector3.Distance(slots[i].position, card.self.position) < 0.01f)
+            {
+                int y = i / 3;
+                int x = i - y * 3;
+                cards[x][y] = card;
+                card.meshSpawner.SpawnMesh();
+            }
+            CalculatePower();
         }
-
-        CalculatePower();
     }
 
     public void CalculatePower()

@@ -134,6 +134,7 @@ public class Deck : MonoBehaviour
             StartCoroutine(DiscardMovement(playedCard[0], playedCard.Count == 1));
             playedCard[0].GetComponent<CardDragMovements>().Initialize();
             discard.Add(playedCard[0]);
+            playedCard[0].meshSpawner.UnspawnMesh();
             playedCard.Remove(playedCard[0]);
         }
     }

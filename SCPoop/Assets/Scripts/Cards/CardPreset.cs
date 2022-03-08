@@ -21,5 +21,7 @@ public class CardPreset : ScriptableObject
     public int power;
     public int direction;
     public Effect effect;
-    public Texture2D texture;
+    public Material texture;
+    public Mesh scpMesh;
+    public Material scpMaterial;
 }

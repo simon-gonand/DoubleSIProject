@@ -15,4 +15,6 @@ MonoBehaviour:
   power: 3
   direction: 32
   effect: 5
-  texture: {fileID: 2800000, guid: 8d3f3100d97ada7449d6baa0d1acca5e, type: 3}
+  texture: {fileID: 2100000, guid: b139ccaac95eb694fabfc74b49e3da3f, type: 2}
+  scpMesh: {fileID: 8440263134314148794, guid: cf027789e8275f544853f25b06f3394b, type: 3}
+  scpMaterial: {fileID: 2100000, guid: 3f40ee7424018784da6e0900facb9488, type: 2}
