@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public bool player1Turn = true;
 
+    public TooltipUI tooltipUI;
+
     private void Awake()
     {
         if (instance == null)
