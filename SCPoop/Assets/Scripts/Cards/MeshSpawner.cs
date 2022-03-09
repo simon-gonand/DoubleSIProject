@@ -12,7 +12,6 @@ public class MeshSpawner : MonoBehaviour
 
     public void SpawnMesh()
     {
-        Debug.Log("saucisse");
         meshFilter.mesh = card.stats.scpMesh;
         meshRenderer.material = card.stats.scpMaterial;
         gameObject.SetActive(true);

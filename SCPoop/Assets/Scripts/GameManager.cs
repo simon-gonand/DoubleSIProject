@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     {
         player1Deck.Discard();
         player2Deck.Discard();
+        Grid.instance.ClearPlayerTrails();
     }
 
     public LayerMask GetPlayerLayerMask()

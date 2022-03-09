@@ -128,8 +128,6 @@ public class Grid : MonoBehaviour
             
             if (cards[i - y * 3][y] != null)
             {
-                Debug.Log("y=" + y);
-                Debug.Log("x=" + (i - y * 3));
                 currentCard = cards[i - y * 3][y];
 
                 for (int j = 0; j <= 7; ++j)
