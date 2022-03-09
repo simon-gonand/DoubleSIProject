@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
         return LayerMask.NameToLayer("CardHandP2");
     }
 
+    public LayerMask GetBoardLayerMask()
+    {
+        return LayerMask.NameToLayer("Card");
+    }
+
     public void PlayCard(Card card)
     {
         if (player1Turn)
