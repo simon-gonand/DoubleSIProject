@@ -42,6 +42,6 @@ public class LifeSystem : MonoBehaviour
 
     private void EnemyDeath()
     {
-        DungeonManager.instance.NextWave();
+        WaveClearDisplay.instance.Display();
     }
 }

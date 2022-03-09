@@ -41,5 +41,7 @@ public class DungeonManager : MonoBehaviour
         LifeSystem.instance.enemylife = waves[actualWave].healthPoints;
         LifeSystem.instance.enemyMaxLife = waves[actualWave].healthPoints;
         ++actualWave;
+
+        Timer.instance.LaunchTimer();
     }
 }
