@@ -23,18 +23,25 @@ public class LifeSystem : MonoBehaviour
         enemylife = enemyMaxLife;
     }
 
-    private void Update()
+    public void CheckDeath()
     {
         if (playerLife <= 0)
         {
             PlayerDeath();
         }
+        else if (enemylife <= 0)
+        {
+            EnemyDeath();
+        }
     }
 
     private void PlayerDeath()
     {
-        Debug.Log("T'es mort Teuteu");
         SceneManager.LoadScene("Death Screen");
     }
 
+    private void EnemyDeath()
+    {
+        DungeonManager.instance.NextWave();
+    }
 }

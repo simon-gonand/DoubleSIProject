@@ -14,7 +14,6 @@ public class Grid : MonoBehaviour
     public float playerResult = 0;
     public float enemyResult = 0;
 
-    public Card[] debugEnemyHand;
     [Header("LinkEnnemies")] 
     public GameObject electroLinkVerticalEnemy;
     public GameObject electroLinkDiagonalEnemy;
@@ -45,11 +44,23 @@ public class Grid : MonoBehaviour
             cards[i] = new Card[3];
         }
 
-        cards[0][0] = debugEnemyHand[0];
-        cards[1][0] = debugEnemyHand[1];
-        cards[2][0] = debugEnemyHand[2];
-
         CalculatePower();
+    }
+
+    public void ChangeEnemyHand(List<Card> card, Transform[] s)
+    {
+        Destroy(cards[0][0]?.gameObject);
+        Destroy(cards[1][0]?.gameObject);
+        Destroy(cards[2][0]?.gameObject);
+
+        cards[0][0] = card[0];
+        cards[1][0] = card[1];
+        cards[2][0] = card[2];
+
+        slots[0] = s[0];
+        slots[1] = s[1];
+        slots[2] = s[2];
+
         InitEnemyTrails();
     }
 
@@ -57,12 +68,10 @@ public class Grid : MonoBehaviour
     {
         for (int i = 0; i < 3; ++i)
         {
-
-
             for (int j = 0; j <= 7; ++j)
             {
                 int mask = 1 << j;
-                if ((mask & debugEnemyHand[i].stats.direction) == mask)
+                if ((mask & cards[i][0].stats.direction) == mask)
                 {
                     switch (j)
                     {

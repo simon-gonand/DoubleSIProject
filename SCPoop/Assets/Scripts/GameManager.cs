@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
         player1Deck.Discard();
         player2Deck.Discard();
         Grid.instance.ClearPlayerTrails();
+        LifeSystem.instance.CheckDeath();
     }
 
     public LayerMask GetPlayerLayerMask()
@@ -83,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "MainScene" && scene.name != "LouisVScene")
+        if (scene.name == "MainMenu" || scene.name == "DeckBuilding" || scene.name == "Death Screen")
         {
             Timer.instance.StopTimer();
             return;

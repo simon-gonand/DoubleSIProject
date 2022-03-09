@@ -50,6 +50,7 @@ public class MousePositionDetection : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                if (Carousel.instance.inAction) return;
                 if (card != null)
                 {
                     EndCurrentHover();

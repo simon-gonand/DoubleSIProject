@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - {fileID: 11400000, guid: a231e0345d78f7246ae3d902dc8f4d71, type: 2}
-  - {fileID: 11400000, guid: 41cc105fe1f72d541b721f725f52b5d7, type: 2}
-  - {fileID: 11400000, guid: 7c5e64fd13a7b2b489ffff5432a177f7, type: 2}
+  - {fileID: 11400000, guid: c30ab0b2d7a1f9044bde1acf7b671bb4, type: 2}
+  - {fileID: 11400000, guid: 4be3c95a44a54d54896c943b2f618e9f, type: 2}
   healthPoints: 20
