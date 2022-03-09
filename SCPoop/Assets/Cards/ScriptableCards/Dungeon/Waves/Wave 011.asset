@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave 011
   m_EditorClassIdentifier: 
   cards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 58a423f18f4eb7b4d9fad6d751286bae, type: 2}
+  - {fileID: 11400000, guid: 4be3c95a44a54d54896c943b2f618e9f, type: 2}
+  - {fileID: 11400000, guid: 12ba946e76cc07347b8fd6746551b2df, type: 2}
   healthPoints: 70
