@@ -147,6 +147,7 @@ public class Grid : MonoBehaviour
         {
             Debug.Log("BUFF");
         }
+
         CalculatePower();
     }
 
