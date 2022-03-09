@@ -20,8 +20,11 @@ public class CameraSwitch : MonoBehaviour
 
     public static CameraSwitch instance;
 
+    public bool isCameraTopView;
+
     private void Start()
     {
+        isCameraTopView = false;
         if (instance == null)
         {
             instance = this;
@@ -84,12 +87,15 @@ public class CameraSwitch : MonoBehaviour
         {
             case 0:
                 camAnimator.Play("HandCamera");
+                isCameraTopView = false;
                 break;
             case 1:
                 camAnimator.Play("GlobalCamera");
+                isCameraTopView = false;
                 break;
             case 2:
                 camAnimator.Play("BoardCamera");
+                isCameraTopView = true;
                 break;
         }
     }

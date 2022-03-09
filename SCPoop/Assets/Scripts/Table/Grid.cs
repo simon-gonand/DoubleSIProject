@@ -143,13 +143,14 @@ public class Grid : MonoBehaviour
     public void AddCard(Card card, int x, int y)
     {
         cards[x][y] = card;
+        card.meshSpawner.SpawnMesh();
 
         if (CheckSamePowerOnLine(y))
         {
-            cards[x][y] = card;
-            card.meshSpawner.SpawnMesh();            
-            CalculatePower();
+            Debug.Log("BUFF");
         }
+
+        CalculatePower();
     }
 
     public void CalculatePower()

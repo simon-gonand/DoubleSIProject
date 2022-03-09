@@ -342,6 +342,10 @@ MonoBehaviour:
   - {fileID: 1031595842}
   - {fileID: 1617531905}
   - {fileID: 1955689901}
+  electroLinkVerticalEnemy: {fileID: 7580070920142941956, guid: 367a0d019a0db624d9abe75256c613eb, type: 3}
+  electroLinkDiagonalEnemy: {fileID: 8069938519378881483, guid: 361da3c446c0907439db5e18e58b88f0, type: 3}
+  electroLinkHorizontalEnemy: {fileID: 2318196684324908612, guid: dfaab42eae515fc4cb6756d65dbde9ac, type: 3}
+  depthlink: 0.1
 --- !u!65 &132073067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3149,7 +3153,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3174,7 +3178,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266474825}
-  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
+  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 3.8000002, z: -10.798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3461,7 +3465,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3486,7 +3490,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443170132}
-  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
+  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 3.8000002, z: -10.798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3693,6 +3697,7 @@ GameObject:
   - component: {fileID: 1576754656}
   - component: {fileID: 1576754658}
   - component: {fileID: 1576754659}
+  - component: {fileID: 1576754660}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3784,6 +3789,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fcd53c9de03eaf4ba2794ce72edfe7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1576754660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576754655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77cd433a491ce5459e9337bf1c7b9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTimer: 30
 --- !u!1 &1592610534
 GameObject:
   m_ObjectHideFlags: 0
