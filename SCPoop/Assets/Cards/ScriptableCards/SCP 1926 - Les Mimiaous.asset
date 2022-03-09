@@ -10,8 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a887a32ca6ce42439b1db074d49f9cb, type: 3}
-  m_Name: 1
+  m_Name: SCP 1926 - Les Mimiaous
   m_EditorClassIdentifier: 
-  power: 3
-  direction: 65
-  effect: 2
+  power: 2
+  direction: 1
+  effect: 3
+  texture: {fileID: 2800000, guid: 18de2ce04bbb6574b9eec2670999e4b2, type: 3}
+  scpMesh: {fileID: 0}
+  scpMaterial: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: f078c168b08b3454eb995cb95541077d, type: 3}
+  cardName: 
+  cardType: 
+  cardDescription: 
+  cardImage: {fileID: 0}

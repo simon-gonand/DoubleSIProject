@@ -10,8 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a887a32ca6ce42439b1db074d49f9cb, type: 3}
-  m_Name: 8
+  m_Name: "SCP 1762 - L\xE0 o\xF9 les dragons sont all\xE9s"
   m_EditorClassIdentifier: 
   power: 2
-  direction: 1
-  effect: 3
+  direction: 9
+  effect: 2
+  texture: {fileID: 2800000, guid: 444d9f04326c73f428d03bd536cc2236, type: 3}
+  scpMesh: {fileID: 0}
+  scpMaterial: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: 8dcfd20a9086ab642b5c73f596e39d90, type: 3}
+  cardName: 
+  cardType: 
+  cardDescription: 
+  cardImage: {fileID: 0}
