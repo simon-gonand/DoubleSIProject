@@ -45,11 +45,13 @@ public class CardDragMovements : MonoBehaviour
             GameManager.instance.PlayCard(card);
             for (int i = 0; i < Grid.instance.slots.Count; ++i)
             {
+
+                //Debug.Log(Vector3.Distance(Grid.instance.slots[i].position, card.self.position));
                 if (Vector3.Distance(Grid.instance.slots[i].position, card.self.position) < 0.01f)
                 {
                     int y = i / 3;
                     int x = i - y * 3;
-
+                    //Debug.Log(i);
                     Grid.instance.AddCard(card, x, y);
                 }
             }
