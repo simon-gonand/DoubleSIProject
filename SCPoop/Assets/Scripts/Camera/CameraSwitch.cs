@@ -20,7 +20,7 @@ public class CameraSwitch : MonoBehaviour
 
     public static CameraSwitch instance;
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {

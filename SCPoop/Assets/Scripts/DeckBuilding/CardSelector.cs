@@ -8,7 +8,8 @@ public class CardSelector : MonoBehaviour
 {
     public Image image;
     public CardPreset cardPreset;
-    public TextMeshProUGUI symbol;
+    public Image symbol;
+    public List<Sprite> symbols;
     public TextMeshProUGUI power;
     public List<Image> arrows;
 
@@ -24,6 +25,7 @@ public class CardSelector : MonoBehaviour
         //assign image from CardPreset
         InitSymbol();
         power.text = cardPreset.power.ToString();
+        image.sprite = cardPreset.cardSprite;
         InitArrows();
     }
 
@@ -32,31 +34,31 @@ public class CardSelector : MonoBehaviour
         switch (cardPreset.effect)
         {
             case CardPreset.Effect.Unchangeable:
-                symbol.text = "[]";
+                symbol.sprite = symbols[0];
                 break;
             case CardPreset.Effect.Equals:
-                symbol.text = "=";
+                symbol.sprite = symbols[1];
                 break;
             case CardPreset.Effect.Plus:
-                symbol.text = "+";
+                symbol.sprite = symbols[2];
                 break;
             case CardPreset.Effect.Minus:
-                symbol.text = "-";
+                symbol.sprite = symbols[3];
                 break;
             case CardPreset.Effect.Multiply:
-                symbol.text = "x";
+                symbol.sprite = symbols[4];
                 break;
             case CardPreset.Effect.Divide:
-                symbol.text = "/";
+                symbol.sprite = symbols[5];
                 break;
             case CardPreset.Effect.Nullify:
-                symbol.text = "∅";
+                symbol.sprite = symbols[6];
                 break;
             case CardPreset.Effect.Heal:
-                symbol.text = "<3";
+                symbol.sprite = symbols[7];
                 break;
             case CardPreset.Effect.None:
-                symbol.text = "";
+                symbol.enabled = false;
                 return;
         }
     }

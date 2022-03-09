@@ -12,7 +12,7 @@ public class SceneTravel : MonoBehaviour
 
     public void GoToGameScene()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("DeckBuilding");
     }
 
     public void QuitGame()

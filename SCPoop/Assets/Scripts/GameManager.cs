@@ -82,7 +82,13 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "MainScene" && scene.name != "LouisVScene") return;
+        if (scene.name != "MainScene" && scene.name != "LouisVScene")
+        {
+            Timer.instance.StopTimer();
+            return;
+        }
+        Timer.instance.LaunchTimer();
+        stateDrivenCamera = FindObjectOfType<CinemachineStateDrivenCamera>();
         Deck[] deck = FindObjectsOfType<Deck>();
         player1Deck = deck[0];
         player2Deck = deck[1];

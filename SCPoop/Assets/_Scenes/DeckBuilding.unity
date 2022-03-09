@@ -199,7 +199,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -516,10 +516,6 @@ PrefabInstance:
       propertyPath: cardPreset
       value: 
       objectReference: {fileID: 11400000, guid: 4be3c95a44a54d54896c943b2f618e9f, type: 2}
-    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
 --- !u!224 &203682218 stripped
@@ -2337,6 +2333,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1560056507}
   - component: {fileID: 1560056506}
+  - component: {fileID: 1560056510}
+  - component: {fileID: 1560056509}
+  - component: {fileID: 1560056508}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2384,6 +2383,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  stateDrivenCamera: {fileID: 0}
   player1Turn: 1
 --- !u!4 &1560056507
 Transform:
@@ -2399,6 +2399,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1560056508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560056505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab23816822e3f1408fe1d6d9c08c4ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLife: 10
+  playerMaxLife: 10
+  enemylife: 10
+  enemyMaxLife: 10
+--- !u!114 &1560056509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560056505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcd53c9de03eaf4ba2794ce72edfe7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1560056510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560056505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77cd433a491ce5459e9337bf1c7b9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTimer: 30
 --- !u!1001 &1659715753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3086,14 +3127,6 @@ PrefabInstance:
     - target: {fileID: 5134036115503241721, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
       propertyPath: m_Name
       value: CardSelector
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134036115503241723, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
-      propertyPath: cardPreset
-      value: 
-      objectReference: {fileID: 11400000, guid: a30e4f29155997c48b305590c621a0cf, type: 2}
-    - target: {fileID: 5134036115544076519, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d5365b38406b243901aec9cd8bde60, type: 3}

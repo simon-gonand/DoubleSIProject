@@ -24,4 +24,5 @@ public class CardPreset : ScriptableObject
     public Texture texture;
     public Mesh scpMesh;
     public Material scpMaterial;
+    public Sprite cardSprite;
 }

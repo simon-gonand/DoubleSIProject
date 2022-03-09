@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     public float timer { get { return _timer; } }
     public float maxTimer;
 
+    private bool launchTimer = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -24,6 +26,17 @@ public class Timer : MonoBehaviour
         ResetTime();
     }
 
+    public void LaunchTimer()
+    {
+        launchTimer = true;
+    }
+
+    public void StopTimer()
+    {
+        launchTimer = false;
+        ResetTime();
+    }
+
     public void ResetTime()
     {
         _timer = maxTimer;
@@ -32,6 +45,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!launchTimer) return;
         _timer -= Time.deltaTime;
         if (_timer < 0.0f)
         {

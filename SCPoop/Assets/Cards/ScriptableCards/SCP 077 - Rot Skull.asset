@@ -18,3 +18,4 @@ MonoBehaviour:
   texture: {fileID: 2800000, guid: 8d3f3100d97ada7449d6baa0d1acca5e, type: 3}
   scpMesh: {fileID: 8440263134314148794, guid: cf027789e8275f544853f25b06f3394b, type: 3}
   scpMaterial: {fileID: 2100000, guid: 3f40ee7424018784da6e0900facb9488, type: 2}
+  cardSprite: {fileID: 21300000, guid: eae3dfcfb4837404cac49da31c7de6d5, type: 3}
