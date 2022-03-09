@@ -511,6 +511,7 @@ MonoBehaviour:
   self: {fileID: 7482394428414773562}
   arrow: {fileID: 8155145975976203624, guid: 2ba702587a05d804893c7a8f7b6d027a, type: 3}
   symbol: {fileID: 5994468705503486789}
+  materialSymbol: {fileID: 7581154601991837797}
   symbols:
   - {fileID: -27298086161382931, guid: 2d97113c0f8e6194b86565dcef1d9619, type: 3}
   - {fileID: 5834118226927343580, guid: 13c4926db8de7a440a5cf0ffbdc7519f, type: 3}
@@ -520,6 +521,16 @@ MonoBehaviour:
   - {fileID: -6753258995281732533, guid: 382baf0cfea171e48b045b62e7ca61b6, type: 3}
   - {fileID: -9102053661754555721, guid: e0d26e238b8fddd44b2f8678406632b7, type: 3}
   - {fileID: -2862781087049486555, guid: 86a1873610b7b7d4aab1a48cacc832d4, type: 3}
+  - {fileID: 0}
+  symbolMaterials:
+  - {fileID: 2100000, guid: 059951952b831924599ccf49d9b23df0, type: 2}
+  - {fileID: 2100000, guid: 89336a6816d314b46bb14eefaf4e264f, type: 2}
+  - {fileID: 2100000, guid: 5e945070a9290f94b95fe3dca12bd6a6, type: 2}
+  - {fileID: 2100000, guid: 5716a0b4cb32f86499d760093452c307, type: 2}
+  - {fileID: 2100000, guid: e5379bc64ff56dc45962d987faf07685, type: 2}
+  - {fileID: 2100000, guid: af112462c52a856439178979db629772, type: 2}
+  - {fileID: 2100000, guid: 44e9d346a23af9e468fb4f93d39efe8b, type: 2}
+  - {fileID: 2100000, guid: 93ed74365d79e2b429f2bae7d70f1761, type: 2}
   - {fileID: 0}
   power: {fileID: 4187878007338882736}
   mesh: {fileID: 8097316595756479915}
