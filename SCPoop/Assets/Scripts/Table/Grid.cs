@@ -15,11 +15,19 @@ public class Grid : MonoBehaviour
     public float enemyResult = 0;
 
     public Card[] debugEnemyHand;
-
+    [Header("LinkEnnemies")] 
     public GameObject electroLinkVerticalEnemy;
     public GameObject electroLinkDiagonalEnemy;
     public GameObject electroLinkHorizontalEnemy;
-    public float depthlink = 0.1f;
+    public float depthlinkEnemy = 0.1f;
+    private List  <GameObject> enemyTrail = new List<GameObject>();
+    [Header("LinkPlayer")]
+    private List<GameObject> playerTrail = new List<GameObject>();
+    public GameObject electroLinkVertical;
+    public GameObject electroLinkDiagonal;
+    public GameObject electroLinkHorizontal;
+    public float depthlink = 0.05f;
+
 
     private void Awake()
     {
@@ -47,7 +55,7 @@ public class Grid : MonoBehaviour
 
     public void InitEnemyTrails()
     {
-        for (int i = 0; i < debugEnemyHand.Length; ++i)
+        for (int i = 0; i < 3; ++i)
         {
 
 
@@ -60,24 +68,25 @@ public class Grid : MonoBehaviour
                     {
 
                         case 1:
-                            GameObject localLinkDown = Instantiate(electroLinkVerticalEnemy, debugEnemyHand[i].gameObject.transform, false);
-                            localLinkDown.transform.localPosition = new Vector3(0, depthlink, -14);
-
+                            GameObject localLinkDown = Instantiate(electroLinkVerticalEnemy, slots[i].gameObject.transform, false);
+                            localLinkDown.transform.localPosition = new Vector3(0, depthlinkEnemy, -0.45f);
+                            enemyTrail.Add(localLinkDown);
                             break;
                         case 2:
                             if (i>=1)
                             {
-                                GameObject localLinkLeft = Instantiate(electroLinkHorizontalEnemy, debugEnemyHand[i].gameObject.transform, false);
-                                localLinkLeft.transform.localPosition = new Vector3(-11, depthlink, 0);
+                                GameObject localLinkLeft = Instantiate(electroLinkHorizontalEnemy, slots[i].gameObject.transform, false);
+                                localLinkLeft.transform.localPosition = new Vector3(-0.45f, depthlinkEnemy, 0);
+                                enemyTrail.Add(localLinkLeft);
                             }
                             
                             break;
                         case 3:
                             if (i <= 1)
                             {
-                                GameObject localLinkRight = Instantiate(electroLinkHorizontalEnemy, debugEnemyHand[i].gameObject.transform, false);
-                                localLinkRight.transform.localPosition = new Vector3(11, depthlink, 0);
-
+                                GameObject localLinkRight = Instantiate(electroLinkHorizontalEnemy, slots[i].gameObject.transform, false);
+                                localLinkRight.transform.localPosition = new Vector3(0.45f, depthlinkEnemy, 0);
+                                enemyTrail.Add(localLinkRight);
                             }
 
                             break;
@@ -85,19 +94,21 @@ public class Grid : MonoBehaviour
                         case 6:
                             if (i <= 1)
                             {
-                                GameObject localLinkDownRight = Instantiate(electroLinkHorizontalEnemy, debugEnemyHand[i].gameObject.transform, false);
-                                localLinkDownRight.transform.localPosition = new Vector3(11, depthlink, -14);
+                                GameObject localLinkDownRight = Instantiate(electroLinkDiagonalEnemy, slots[i].gameObject.transform, false);
+                                localLinkDownRight.transform.localPosition = new Vector3(0.45f, depthlinkEnemy, -0.45f);
                                 localLinkDownRight.transform.localEulerAngles = new Vector3(0, -28, 0);
+                                enemyTrail.Add(localLinkDownRight);
                             }
 
                             break;
                         case 7:
                             if (i >= 1)
                             {
-                                GameObject localLinkDownLeft = Instantiate(electroLinkHorizontalEnemy, debugEnemyHand[i].gameObject.transform, false);
-                                localLinkDownLeft.transform.localPosition = new Vector3(-11, depthlink, -14);
-                                localLinkDownLeft.transform.localEulerAngles = new Vector3(0, -28, 0);
-                                    }
+                                GameObject localLinkDownLeft = Instantiate(electroLinkDiagonalEnemy, slots[i].gameObject.transform, false);
+                                localLinkDownLeft.transform.localPosition = new Vector3(-0.45f, depthlinkEnemy,-0.45f);
+                                localLinkDownLeft.transform.localEulerAngles = new Vector3(0, 28, 0);
+                                enemyTrail.Add(localLinkDownLeft);
+                            }
                             break;
                         default:
                             break;
@@ -108,7 +119,127 @@ public class Grid : MonoBehaviour
     
         
     }
+    public void InitPlayerTrails()
+    {
+        for (int i = 3; i < 9; ++i)
+        {
+            Card currentCard;
+            int y = i / 3;
+            
+            if (cards[i - y * 3][y] != null)
+            {
+                Debug.Log("y=" + y);
+                Debug.Log("x=" + (i - y * 3));
+                currentCard = cards[i - y * 3][y];
 
+                for (int j = 0; j <= 7; ++j)
+                {
+                    int mask = 1 << j;
+                    if ((mask & currentCard.stats.direction) == mask)
+                    {
+                        switch (j)
+                        {
+
+                            case 0:
+                                    GameObject localLinkUp = Instantiate(electroLinkVertical, slots[i].gameObject.transform, false);
+                                    localLinkUp.transform.localPosition = new Vector3(0, depthlink, 0.45f);
+                                    playerTrail.Add(localLinkUp);
+                                break;
+
+                            case 1:
+                                if(i!=6 && i != 7 && i != 8)
+                                {
+                                    GameObject localLinkDown = Instantiate(electroLinkVertical, slots[i].gameObject.transform, false);
+                                    localLinkDown.transform.localPosition = new Vector3(0, depthlink, -0.45f);
+                                    playerTrail.Add(localLinkDown);
+                                }
+                                break;
+                            case 2:
+                                if (i!=3 && i!=6)
+                                {
+                                    GameObject localLinkLeft = Instantiate(electroLinkHorizontal, slots[i].gameObject.transform, false);
+                                    localLinkLeft.transform.localPosition = new Vector3(-0.45f, depthlink, 0);
+                                    playerTrail.Add(localLinkLeft);
+                                }
+
+                                break;
+                            case 3:
+                                if (i != 5 && i != 8)
+                                {
+                                    GameObject localLinkRight = Instantiate(electroLinkHorizontal, slots[i].gameObject.transform, false);
+                                    localLinkRight.transform.localPosition = new Vector3(0.45f, depthlink, 0);
+                                    playerTrail.Add(localLinkRight);
+                                }
+
+                                break;
+                            case 4:
+                                if (i != 5 && i != 8)
+                                {
+                                    GameObject localLinkUpRight = Instantiate(electroLinkDiagonal, slots[i].gameObject.transform, false);
+                                    localLinkUpRight.transform.localPosition = new Vector3(0.45f, depthlink, 0.45f);
+                                    localLinkUpRight.transform.localEulerAngles = new Vector3(0, 28, 0);
+                                    playerTrail.Add(localLinkUpRight);
+                                }
+
+                                break;
+                            case 5:
+                                if (i != 3 && i != 6)
+                                {
+                                    GameObject localLinkUpLeft = Instantiate(electroLinkDiagonal, slots[i].gameObject.transform, false);
+                                    localLinkUpLeft.transform.localPosition = new Vector3(-0.45f, depthlink, 0.45f);
+                                    localLinkUpLeft.transform.localEulerAngles = new Vector3(0, -28, 0);
+                                    playerTrail.Add(localLinkUpLeft);
+                                }
+                                break;
+
+                            case 6:
+                                if (i != 6 && i != 7 && i != 8)
+                                {
+                                    GameObject localLinkDownRight = Instantiate(electroLinkDiagonal, slots[i].gameObject.transform, false);
+                                    localLinkDownRight.transform.localPosition = new Vector3(0.45f, depthlink, -0.45f);
+                                    localLinkDownRight.transform.localEulerAngles = new Vector3(0, -28, 0);
+                                    playerTrail.Add(localLinkDownRight);
+                                }
+
+                                break;
+                            case 7:
+                                if (i != 6 && i != 7 && i != 8)
+                                {
+                                    GameObject localLinkDownLeft = Instantiate(electroLinkDiagonal, slots[i].gameObject.transform, false);
+                                    localLinkDownLeft.transform.localPosition = new Vector3(-0.45f, depthlink, -0.45f);
+                                    localLinkDownLeft.transform.localEulerAngles = new Vector3(0, 28, 0);
+                                    playerTrail.Add(localLinkDownLeft);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+
+
+            
+            }
+        }
+
+
+    }
+    public void ClearEnemyTrails()
+    {
+        for (int i = 0; i < enemyTrail.Count; ++i)
+        {
+            Destroy(enemyTrail[i]);
+        }
+        enemyTrail.Clear();
+    }
+    public void ClearPlayerTrails()
+    {
+        for (int i = 0; i < playerTrail.Count; ++i)
+        {
+            Destroy(playerTrail[i]);
+        }
+        playerTrail.Clear();
+    }
     public void BeginTurn()
     {
         for (int y = 1; y < 3; ++y)
@@ -142,6 +273,8 @@ public class Grid : MonoBehaviour
     {
         cards[x][y] = card;
         card.meshSpawner.SpawnMesh();            
+        ClearPlayerTrails();
+        InitPlayerTrails();
 
         if (CheckSamePowerOnLine(y))
         {
