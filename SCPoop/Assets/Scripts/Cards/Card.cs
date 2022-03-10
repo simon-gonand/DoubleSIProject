@@ -28,7 +28,7 @@ public class Card : MonoBehaviour
     private MaterialPropertyBlock propBlock;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         if (stats != null)
             Init();
@@ -45,7 +45,6 @@ public class Card : MonoBehaviour
         InitSign();
         InitPower();
         InitGraph();
-       
     }
 
     public void InitArrows()
@@ -59,45 +58,60 @@ public class Card : MonoBehaviour
                 {
                     case 0:
                         GameObject localArrowUp = Instantiate(arrow, self, false);
+                        localArrowUp.layer = gameObject.layer;
+                        localArrowUp.GetComponentsInChildren<Transform>()[1].gameObject.layer = gameObject.layer;
                         localArrowUp.transform.localPosition = new Vector3(0, depthArrow, 4);
                         localArrowUp.transform.localEulerAngles = new Vector3(-90, 90, 0);
                         break;
                     case 1:
                         GameObject localArrowDown = Instantiate(arrow, self, false);
+                        localArrowDown.layer = gameObject.layer;
+                        localArrowDown.GetComponentsInChildren<Transform>()[1].gameObject.layer = gameObject.layer;
                         localArrowDown.transform.localPosition = new Vector3(0, depthArrow, -4);
                         localArrowDown.transform.localEulerAngles = new Vector3(-90, -90, 0);
 
                         break;
                     case 2:
                         GameObject localArrowLeft = Instantiate(arrow, self, false);
+                        localArrowLeft.layer = gameObject.layer;
+                        localArrowLeft.GetComponentsInChildren<Transform>()[1].gameObject.layer = gameObject.layer;
                         localArrowLeft.transform.localPosition = new Vector3(-4, depthArrow, 0);
                         localArrowLeft.transform.localEulerAngles = new Vector3(-90, 0, 0);
                         break;
                     case 3:
                         GameObject localArrowRight = Instantiate(arrow, self, false);
+                        localArrowRight.layer = gameObject.layer;
+                        localArrowRight.GetComponentsInChildren<Transform>()[1].gameObject.layer = gameObject.layer;
                         localArrowRight.transform.localPosition = new Vector3(4, depthArrow, 0);
                         localArrowRight.transform.localEulerAngles = new Vector3(-90, 0, 180);
-
                         break;
                     case 4:
                         GameObject localArrowUpRight = Instantiate(arrow, self, false);
+                        localArrowUpRight.layer = gameObject.layer;
+                        localArrowUpRight.GetComponentsInChildren<Transform>()[1].gameObject.layer = gameObject.layer;
                         localArrowUpRight.transform.localPosition = new Vector3(4, depthArrow, 4);
                         localArrowUpRight.transform.localEulerAngles = new Vector3(-90, 135, 0);
                         break;
                     case 5:
                         GameObject localArrowUpLeft = Instantiate(arrow, self, false);
+                        localArrowUpLeft.layer = gameObject.layer;
+                        localArrowUpLeft.GetComponentsInChildren<Transform>()[1].gameObject.layer = gameObject.layer;
                         localArrowUpLeft.transform.localPosition = new Vector3(-4, depthArrow, 4);
                         localArrowUpLeft.transform.localEulerAngles = new Vector3(-90, 45, 0);
 
                         break;
                     case 6:
                         GameObject localArrowDownRight = Instantiate(arrow, self, false);
+                        localArrowDownRight.GetComponentsInChildren<Transform>()[1].gameObject.layer = gameObject.layer;
+                        localArrowDownRight.layer = gameObject.layer;
                         localArrowDownRight.transform.localPosition = new Vector3(4, depthArrow, -4);
                         localArrowDownRight.transform.localEulerAngles = new Vector3(-90, -135, 0);
 
                         break;
                     case 7:
                         GameObject localArrowDownLeft = Instantiate(arrow, self, false);
+                        localArrowDownLeft.layer = gameObject.layer;
+                        localArrowDownLeft.GetComponentsInChildren<Transform>()[1].gameObject.layer = gameObject.layer;
                         localArrowDownLeft.transform.localPosition = new Vector3(-4, depthArrow, -4);
                         localArrowDownLeft.transform.localEulerAngles = new Vector3(-90, -45, 0);
                         break;
