@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Grid : MonoBehaviour
 {
@@ -28,6 +29,14 @@ public class Grid : MonoBehaviour
     public GameObject electroLinkHorizontal;
     public float depthlink = 0.05f;
 
+    [Header("FXAttack")]
+    public GameObject playerDamage;
+    public float increaseDuration = 1;
+    public TextMeshPro playerdamageText;
+
+    [Header("FXWound")]
+    public GameObject enemyDamage;
+    public TextMeshPro enemydamageText;
 
     private void Awake()
     {
@@ -367,7 +376,7 @@ public class Grid : MonoBehaviour
 
         if (isFull)
         {
-            Attack(playerResult, enemyResult);
+            Attack();
             GameManager.instance.EndTurn();
         }
 
@@ -430,16 +439,57 @@ public class Grid : MonoBehaviour
         }
     }
 
-    private void Attack(float playerResult, float enemyResult)
+    private void Attack()
     {
-        LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
-        if(LifeSystem.instance.enemylife > 0)
+
+        playerDamage.SetActive(true);
+        playerdamageText.gameObject.SetActive(true);
+        StartCoroutine(LerpPower(playerResult,playerdamageText));
+        //PlayerDamageAnimation.Play();
+
+    }
+    private IEnumerator LerpPower(float value,TextMeshPro text)
+    {
+        float timeElapsed = 0.0f;
+        while (timeElapsed < increaseDuration)
         {
-            StartCoroutine(FightCoroutine(0.7f, enemyResult));
+            timeElapsed += Time.deltaTime;
+            text.text = ((int)Mathf.Lerp(0, value, timeElapsed / increaseDuration)).ToString();
+            yield return null;
         }
     }
+    public void EndAttack()
+    {
+        Debug.Log("fin");
+        playerdamageText.gameObject.SetActive(false);
+        LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
+        playerDamage.SetActive(false);
+        if (LifeSystem.instance.enemylife > 0)
+        {
+            EnemyAttack();
+            //StartCoroutine(FightCoroutine(0.7f));
+        }
+    }
+    private void EnemyAttack()
+    {
 
-    IEnumerator FightCoroutine(float time, float enemyResult)
+        enemyDamage.SetActive(true);
+        enemydamageText.gameObject.SetActive(true);
+        StartCoroutine(LerpPower(enemyResult,enemydamageText));
+        //PlayerDamageAnimation.Play();
+
+    }
+    public void EndEnemyAttack()
+    {
+        enemydamageText.gameObject.SetActive(false);
+        LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult; 
+        enemyDamage.SetActive(false);
+        if (LifeSystem.instance.enemylife > 0)
+        {
+            StartCoroutine(FightCoroutine(0.7f));
+        }
+    }
+    IEnumerator FightCoroutine(float time)
     {
         yield return new WaitForSeconds(time);
         LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult;
