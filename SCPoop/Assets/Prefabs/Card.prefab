@@ -195,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7892244305472410218
 Transform:
   m_ObjectHideFlags: 0
@@ -219,16 +219,16 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162250151499735868}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5026,16 +5026,16 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3902846931868697019}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9998,12 +9998,12 @@ GameObject:
   - component: {fileID: 8089809779416570950}
   - component: {fileID: 2450122125094211711}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: CurrentPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1705154892933431585
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10020,7 +10020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3.5}
+  m_AnchoredPosition: {x: 0, y: 2.07}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8089809779416570950
@@ -10043,7 +10043,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 5cf7ebaae13f4d64eaf64956c134d654, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10085,10 +10085,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 12
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5cf7ebaae13f4d64eaf64956c134d654, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 5cf7ebaae13f4d64eaf64956c134d654, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10319,7 +10319,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 44e9d346a23af9e468fb4f93d39efe8b, type: 2}
   - {fileID: 2100000, guid: 93ed74365d79e2b429f2bae7d70f1761, type: 2}
   - {fileID: 0}
-  power: {fileID: 4187878007338882736}
+  powerText: {fileID: 4187878007338882736}
+  currentPowerText: {fileID: 2450122125094211711}
+  enemyFontMaterial: {fileID: 2180264, guid: 23ba16424f0aedf45b08cec91b615ec4, type: 2}
+  BuffFX: {fileID: 2112950517651420440}
   mesh: {fileID: 8097316595756479915}
 --- !u!95 &7604719897335849401
 Animator:
