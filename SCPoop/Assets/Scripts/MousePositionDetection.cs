@@ -42,6 +42,8 @@ public class MousePositionDetection : MonoBehaviour
 
                 hoveredCard = card;
 
+                GameManager.instance.tooltipUI.DisplayInfo(hit.collider.gameObject.GetComponent<Card>());
+
                 if (!hoveredCard.isHover)
                 {
                     hoveredCard.OnBeginHover();
@@ -76,6 +78,7 @@ public class MousePositionDetection : MonoBehaviour
     {
         if (hoveredCard != null)
         {
+            GameManager.instance.tooltipUI.CleanInfo();
             hoveredCard.OnEndHover();
             hoveredCard = null;
         }
