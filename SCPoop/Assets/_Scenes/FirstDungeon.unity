@@ -1979,7 +1979,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5adcfae08c6164747aa933e6bc9a21d3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ab81431b6e1ac9a409fc31b9f0cc305c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2077,9 +2077,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c11d13271198ab4eb86291d5b1c5ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SFXPlayCard: {fileID: 8300000, guid: 6582b91e1e917e64ca26e65954763570, type: 3}
-  SFXAttack: {fileID: 8300000, guid: 4e31d1382afecb245b4bd11c555e6dbb, type: 3}
-  mainMusic: {fileID: 8300000, guid: 5adcfae08c6164747aa933e6bc9a21d3, type: 3}
+  SFXPlayCard: {fileID: 8300000, guid: e7fc4bc3d85ede2419a5b8b1851fbbc0, type: 3}
+  SFXHover: {fileID: 8300000, guid: c36c598210d70d945bd38432ae07566f, type: 3}
+  SFXAttackpart1: {fileID: 0}
+  SFXAttackpart2: {fileID: 0}
+  timeBetweenAttackSounds: 0
+  mainMusic: {fileID: 8300000, guid: ab81431b6e1ac9a409fc31b9f0cc305c, type: 3}
   audioSource: {fileID: 303986987}
 --- !u!4 &303986989
 Transform:
@@ -5553,6 +5556,9 @@ MonoBehaviour:
   electroLinkDiagonal: {fileID: 8069938519378881483, guid: 0f8333e82103a404ca956307ef54d07b, type: 3}
   electroLinkHorizontal: {fileID: 2318196684324908612, guid: 80deb3345845997458dec03113401de5, type: 3}
   depthlink: 0.03
+  LaserCharge: {fileID: 5493738210675721646}
+  LaserAttack: {fileID: 0}
+  DMGdealt: {fileID: 0}
 --- !u!65 &1241994880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6032,7 +6038,7 @@ Transform:
   m_Children:
   - {fileID: 1266474828}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1351719187
 GameObject:
