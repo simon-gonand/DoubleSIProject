@@ -291,14 +291,18 @@ public class Grid : MonoBehaviour
         CalculatePower();
     }
 
-    public void CalculatePower()
+    public void CalculatePower(int cardX = -1, int cardY = - 1, Card card = null)
     {
         for (int x = 0; x < 3; ++x)
         {
             for (int y = 0; y < 3; ++y)
             {
-                if (cards[x][y] == null) continue;
-                cards[x][y].Init();
+                if ((card == null || (cardX != x || cardY != y)) && cards[x][y] != null)
+                {
+                    cards[x][y].Init();
+                }
+                else if (card != null)
+                    card.Init();
             }
         }
 
@@ -308,21 +312,24 @@ public class Grid : MonoBehaviour
             {
                 for (int y = 0; y < 3; ++y)
                 {
-                    if (cards[x][y] == null) continue;
-                    if (((int)cards[x][y].stats.effect) == i)
+                    Card temp = cards[x][y];
+                    if (card != null && cardX == x && cardY == y)
+                        temp = card;
+                    if (temp == null) continue;
+                    if (((int)temp.stats.effect) == i)
                     {
-                        if (cards[x][y].stats.direction == 0)
+                        if (temp.stats.direction == 0)
                         {
-                            cards[x][y].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                            temp.ApplyEffect(temp.stats.effect, temp.stats.power);
                         }
                         else
                         {
                             for (int j = 0; j <= 7; ++j)
                             {
                                 int mask = 1 << j;
-                                if ((mask & cards[x][y].stats.direction) == mask)
+                                if ((mask & temp.stats.direction) == mask)
                                 {
-                                    CheckDirection(x, y, j);
+                                    CheckDirection(x, y, j, cardX, cardY, card, temp.stats.effect, temp.stats.power);
                                 }
                             }
                         }
@@ -341,26 +348,30 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < 3; ++y)
             {
+                Card temp = cards[x][y];
                 if (cards[x][y] == null)
                 {
                     isFull = false;
-                    continue;
+                    if (card != null && cardX == x && cardY == y)
+                        temp = card;
+                    else
+                        continue;
                 }
                 if (y == 0)
                 {
                     //Enemy
-                    enemyResult += cards[x][y].tempPower;
-                    cards[x][y].ActualisePower(true);
+                    enemyResult += temp.tempPower;
+                    temp.ActualisePower(true);
                 }
                 else
                 {
                     //player
-                    if (cards[x][y].tempIsHeal)
-                        heal += cards[x][y].tempPower;
+                    if (temp.tempIsHeal)
+                        heal += temp.tempPower;
                     else
-                        playerResult += cards[x][y].tempPower;
+                        playerResult += temp.tempPower;
 
-                    cards[x][y].ActualisePower(false);
+                    temp.ActualisePower(false);
                 }
             }
         }
@@ -377,53 +388,77 @@ public class Grid : MonoBehaviour
 
     }
 
-    private void CheckDirection(int x, int y, int j)
+    private void CheckDirection(int x, int y, int j, int cardX, int cardY, Card card, CardPreset.Effect effect, int power)
     {
         switch (j)
         {
             case 0:
                 if (y == 0) return;
-                if (cards[x][y - 1] == null) return;
-                cards[x][y - 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                Card temp = cards[x][y - 1];
+                if (card != null && x == cardX && y - 1 == cardY)
+                    temp = card;
+                if (temp == null) return;
+                temp.ApplyEffect(effect, power);
                 break;
             case 1:
                 if (y == 2) return;
-                if (cards[x][y + 1] == null) return;
-                cards[x][y + 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                temp = cards[x][y + 1];
+                if (card != null && x == cardX && y + 1 == cardY)
+                    temp = card;
+                if (temp == null) return;
+                temp.ApplyEffect(effect, power);
                 break;
             case 2:
                 if (x == 0) return;
-                if (cards[x - 1][y] == null) return;
-                cards[x - 1][y].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                temp = cards[x - 1][y];
+                if (card != null && x - 1 == cardX && y == cardY)
+                    temp = card;
+                if (temp == null) return;
+                temp.ApplyEffect(effect, power);
                 break;
             case 3:
                 if (x == 2) return;
-                if (cards[x + 1][y] == null) return;
-                cards[x + 1][y].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                temp = cards[x + 1][y];
+                if (card != null && x + 1 == cardX && y == cardY)
+                    temp = card;
+                if (temp == null) return;
+                temp.ApplyEffect(effect, power);
                 break;
             case 4:
                 if (x == 2) return;
                 if (y == 0) return;
-                if (cards[x + 1][y - 1] == null) return;
-                cards[x + 1][y - 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                temp = cards[x + 1][y - 1];
+                if (card != null && x + 1 == cardX && y - 1 == cardY)
+                    temp = card;
+                if (temp == null) return;
+                temp.ApplyEffect(effect, power);
                 break;
             case 5:
                 if (x == 0) return;
                 if (y == 0) return;
-                if (cards[x - 1][y - 1] == null) return;
-                cards[x - 1][y - 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                temp = cards[x - 1][y - 1];
+                if (card != null && x - 1 == cardX && y - 1 == cardY)
+                    temp = card;
+                if (temp == null) return;
+                temp.ApplyEffect(effect, power);
                 break;
             case 6:
                 if (x == 2) return;
                 if (y == 2) return;
-                if (cards[x + 1][y + 1] == null) return;
-                cards[x + 1][y + 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                temp = cards[x + 1][y + 1];
+                if (card != null && x + 1 == cardX && y + 1 == cardY)
+                    temp = card;
+                if (temp == null) return;
+                temp.ApplyEffect(effect, power);
                 break;
             case 7:
                 if (x == 0) return;
                 if (y == 2) return;
-                if (cards[x - 1][y + 1] == null) return;
-                cards[x - 1][y + 1].ApplyEffect(cards[x][y].stats.effect, cards[x][y].stats.power);
+                temp = cards[x - 1][y + 1];
+                if (card != null && x - 1 == cardX && y + 1 == cardY)
+                    temp = card;
+                if (temp == null) return;
+                temp.ApplyEffect(effect, power);
                 break;
             default:
                 break;

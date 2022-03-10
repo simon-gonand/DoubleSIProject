@@ -44,6 +44,7 @@ public class Card : MonoBehaviour
         propBlock = new MaterialPropertyBlock();
 
         _tempPower = stats.power;
+        currentPower = stats.power;
         tempIsUnchangeable = false;
         _tempIsHeal = false;
         InitArrows();

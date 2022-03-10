@@ -100,13 +100,29 @@ public class CardDragMovements : MonoBehaviour
             snapPos.y += 0.01f;
             self.position = snapPos;
             isSnapped = true;
+            int x = 0;
+            int y = 0;
+            for (int i = 0; i < Grid.instance.slots.Count; ++i)
+            {
+                if (Vector3.Distance(Grid.instance.slots[i].position, card.self.position) < 0.01f)
+                {
+                    y = i / 3;
+                    x = i - y * 3;
+                }
+            }
+            Grid.instance.CalculatePower(x, y, card);
         }
         else
         {
-            isSnapped = false;
             Vector3 upPos = self.position;
             upPos.y = originalPos.y;
             self.position = upPos;
+            if (isSnapped)
+            {
+                card.currentPowerText.text = "";
+                Grid.instance.CalculatePower();
+            }
+            isSnapped = false;
         }
     }
 
