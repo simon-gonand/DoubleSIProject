@@ -19,7 +19,14 @@ MonoBehaviour:
   scpMesh: {fileID: 0}
   scpMaterial: {fileID: 0}
   cardSprite: {fileID: 21300000, guid: f5141dd346030cb4a997ca68a1538a7f, type: 3}
-  cardName: 
-  cardType: 
-  cardDescription: 
-  cardImage: {fileID: 0}
+  cardName: SCP_002
+  cardType: Keter
+  cardDescription: "SCP-002 resembles a tumorous, fleshy growth with a volume of
+    roughly 60 m\xB3 (or 2000 ft\xB3). An iron valve hatch on one side leads to its
+    interior, which appears to be a standard low-rent apartment of modest size. One
+    wall of the room possesses a single window, though no such opening is visible
+    from the exterior. The room contains furniture which, upon close examination,
+    appears to be sculpted bone, woven hair, and various other biological substances
+    produced by the human body. All matter tested thus far show independent or fragmented
+    DNA sequences for each object in the room."
+  cardImage: {fileID: 21300000, guid: feef5ae08581e4b4194bf6aaf521ad25, type: 3}

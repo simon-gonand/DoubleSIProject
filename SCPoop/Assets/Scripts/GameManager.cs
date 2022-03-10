@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public bool player1Turn = true;
 
+    public TooltipUI tooltipUI;
+
     private void Awake()
     {
         if (instance == null)
@@ -74,6 +76,11 @@ public class GameManager : MonoBehaviour
         return LayerMask.NameToLayer("CardHandP2");
     }
 
+    public LayerMask GetBoardLayerMask()
+    {
+        return LayerMask.NameToLayer("Card");
+    }
+
     public void PlayCard(Card card)
     {
         if (player1Turn)
@@ -91,6 +98,7 @@ public class GameManager : MonoBehaviour
         }
         Timer.instance.LaunchTimer();
         stateDrivenCamera = FindObjectOfType<CinemachineStateDrivenCamera>();
+        tooltipUI = FindObjectOfType<TooltipUI>();
         Deck[] deck = FindObjectsOfType<Deck>();
         player1Deck = deck[0];
         player2Deck = deck[1];
