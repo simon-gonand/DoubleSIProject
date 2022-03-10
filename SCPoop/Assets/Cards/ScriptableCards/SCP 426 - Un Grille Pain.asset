@@ -19,7 +19,7 @@ MonoBehaviour:
   scpMesh: {fileID: 0}
   scpMaterial: {fileID: 0}
   cardSprite: {fileID: 21300000, guid: fcb09bb921761844282815951e6ff7d5, type: 3}
-  cardName: 
-  cardType: 
+  cardName: SCP_426
+  cardType: Keter
   cardDescription: 
-  cardImage: {fileID: 0}
+  cardTooltipImage: {fileID: 21300000, guid: d788343b1d6165547a0fb32aa82e2803, type: 3}

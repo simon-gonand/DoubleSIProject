@@ -19,7 +19,7 @@ MonoBehaviour:
   scpMesh: {fileID: 0}
   scpMaterial: {fileID: 0}
   cardSprite: {fileID: 21300000, guid: b68690417153f8f4aa100b38c5b3f6fa, type: 3}
-  cardName: 
-  cardType: 
+  cardName: SCP_682
+  cardType: Keter
   cardDescription: 
-  cardImage: {fileID: 0}
+  cardTooltipImage: {fileID: 21300000, guid: adafc3cf99c45c84293ff84f3e15069f, type: 3}

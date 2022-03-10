@@ -16,6 +16,11 @@ public class TooltipUI : MonoBehaviour
     public bool canDisplay = true;
     private string cardEffect;
 
+    private void Start()
+    {
+        CleanInfo();
+    }
+
     /// <summary>
     /// display the card info on the tooltip screen
     /// </summary>
@@ -27,7 +32,7 @@ public class TooltipUI : MonoBehaviour
             cardNameText.text = displayedCard.stats.cardName;
             cardType.text = displayedCard.stats.cardType;
             cardImage.enabled = true;
-            cardImage.sprite = displayedCard.stats.cardSprite;
+            cardImage.sprite = displayedCard.stats.cardTooltipImage;
 
             switch (displayedCard.stats.effect)
             {
@@ -61,7 +66,7 @@ public class TooltipUI : MonoBehaviour
             }
 
             cardGameplayText.text = "BASE POWER : " + displayedCard.stats.power + "\nEFFECT : " + cardEffect + ".";
-            cardLoreText.text = displayedCard.stats.cardDescription;
+            //cardLoreText.text = displayedCard.stats.cardDescription;
         }
     }
 
@@ -74,6 +79,6 @@ public class TooltipUI : MonoBehaviour
         cardType.text = null;
         cardImage.enabled = false;
         cardGameplayText.text = null;
-        cardLoreText.text = null;
+        //cardLoreText.text = null;
     }
 }

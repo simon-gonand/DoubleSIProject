@@ -19,7 +19,7 @@ MonoBehaviour:
   scpMesh: {fileID: 0}
   scpMaterial: {fileID: 0}
   cardSprite: {fileID: 21300000, guid: 78ee7fc68899b9d4e8573aece35d0b5f, type: 3}
-  cardName: 
-  cardType: 
+  cardName: SCP_1529
+  cardType: Keter
   cardDescription: 
-  cardImage: {fileID: 0}
+  cardTooltipImage: {fileID: 21300000, guid: e8f3924383808494fa945a8975c23501, type: 3}
