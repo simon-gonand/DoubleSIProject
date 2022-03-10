@@ -38,14 +38,13 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(SFXHover,0.3f);
     }
 
-    public void PlaySFXAttack()
+    public void PlaySFXAttack1()
     {
         audioSource.PlayOneShot(SFXAttackpart1);
-        StartCoroutine(Attack());
+
     }
-    IEnumerator Attack()
+    public void PlaySFXAttack2()
     {
-        yield return new WaitForSeconds(timeBetweenAttackSounds);
         audioSource.PlayOneShot(SFXAttackpart2);
     }
 }
