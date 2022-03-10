@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
         }
         Timer.instance.LaunchTimer();
         stateDrivenCamera = FindObjectOfType<CinemachineStateDrivenCamera>();
+        tooltipUI = FindObjectOfType<TooltipUI>();
         Deck[] deck = FindObjectsOfType<Deck>();
         player1Deck = deck[0];
         player2Deck = deck[1];
