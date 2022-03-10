@@ -9,8 +9,10 @@ public class Card : MonoBehaviour
     public CardPreset stats;
     public Transform self;
     public GameObject arrow;
-    public MeshFilter symbol;    
+    public MeshFilter symbol;
+    public MeshRenderer materialSymbol;
     public List<Mesh> symbols;
+    public List<Material> symbolMaterials;
     public TextMesh power;
     public MeshRenderer mesh;
     private float depthArrow = 0.3f;
@@ -112,30 +114,39 @@ public class Card : MonoBehaviour
         {
             case CardPreset.Effect.Unchangeable:
                 symbol.mesh = symbols[0];
+                materialSymbol.material = symbolMaterials[0];
                 break;
             case CardPreset.Effect.Equals:
                 symbol.mesh = symbols[1];
+                materialSymbol.material = symbolMaterials[1];
                 break;
             case CardPreset.Effect.Plus:
                 symbol.mesh = symbols[2];
+                materialSymbol.material = symbolMaterials[2];
                 break;
             case CardPreset.Effect.Minus:
                 symbol.mesh = symbols[3];
+                materialSymbol.material = symbolMaterials[3];
                 break;
             case CardPreset.Effect.Multiply:
                 symbol.mesh = symbols[4];
+                materialSymbol.material = symbolMaterials[4];
                 break;
             case CardPreset.Effect.Divide:
                 symbol.mesh = symbols[5];
+                materialSymbol.material = symbolMaterials[5];
                 break;
             case CardPreset.Effect.Nullify:
                 symbol.mesh = symbols[6];
+                materialSymbol.material = symbolMaterials[6];
                 break;
             case CardPreset.Effect.Heal:
                 symbol.mesh = symbols[7];
+                materialSymbol.material = symbolMaterials[7];
                 break;
             case CardPreset.Effect.None:
                 symbol.mesh = symbols[8];
+                materialSymbol.material = symbolMaterials[8];
                 return;
         }
     }

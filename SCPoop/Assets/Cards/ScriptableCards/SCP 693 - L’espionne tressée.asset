@@ -15,7 +15,11 @@ MonoBehaviour:
   power: 3
   direction: 0
   effect: 8
-  texture: {fileID: 2800000, guid: 3fabc374557dccf4cbcc7f6fb966cfe5, type: 3}
+  texture: {fileID: 2800000, guid: c11ce9ffe0a3d754b977dc8f5ce38c1e, type: 3}
   scpMesh: {fileID: 0}
   scpMaterial: {fileID: 0}
   cardSprite: {fileID: 21300000, guid: 4517398dc056c954b902715a45230535, type: 3}
+  cardName: 
+  cardType: 
+  cardDescription: 
+  cardImage: {fileID: 0}
