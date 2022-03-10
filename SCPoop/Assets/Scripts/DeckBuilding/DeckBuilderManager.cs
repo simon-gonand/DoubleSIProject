@@ -81,7 +81,7 @@ public class DeckBuilderManager : MonoBehaviour
                         GameManager.instance.deck2[i] = deck[i];
                     }
 
-                    SceneManager.LoadScene("MainScene"); //Goto Game scene
+                    SceneManager.LoadScene("FirstDungeon"); //Goto Game scene
                     break;
 
                 default:
