@@ -67,6 +67,23 @@ public class MousePositionDetection : MonoBehaviour
         else
             EndCurrentHover();
 
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << GameManager.instance.GetBoardLayerMask()))
+        {
+            CardDragMovements card = hit.collider.gameObject.GetComponent<CardDragMovements>();
+
+            if (card != hoveredCard)
+                EndCurrentHover();
+
+            hoveredCard = card;
+
+            GameManager.instance.tooltipUI.DisplayInfo(hit.collider.gameObject.GetComponent<Card>());
+
+            if (!hoveredCard.isHover)
+            {
+                hoveredCard.OnBeginHover();
+            }
+        }
+
         if (GameManager.instance.stateDrivenCamera.IsBlending)
         {
             EndCurrentHover();

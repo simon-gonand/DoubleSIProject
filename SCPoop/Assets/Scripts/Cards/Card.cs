@@ -16,7 +16,7 @@ public class Card : MonoBehaviour
     public TextMesh power;
     public MeshRenderer mesh;
     private float depthArrow = 0.3f;
-    private float _tempPower;
+    [HideInInspector] public float _tempPower;
     public float tempPower { get { return _tempPower; } }
     private bool _tempIsHeal;
     public bool tempIsHeal { get { return _tempIsHeal; } }

@@ -26,40 +26,41 @@ public class TooltipUI : MonoBehaviour
         {
             cardNameText.text = displayedCard.stats.cardName;
             cardType.text = displayedCard.stats.cardType;
+            cardImage.enabled = true;
             cardImage.sprite = displayedCard.stats.cardSprite;
 
             switch (displayedCard.stats.effect)
             {
                 case CardPreset.Effect.Unchangeable:
-                    cardEffect = "freeze the power of the targeted units";
+                    cardEffect = "Targeted units power can't be altered";
                     break;
                 case CardPreset.Effect.Equals:
-                    cardEffect = "change the power of the targeted units to " + displayedCard.stats.power;
+                    cardEffect = "Change the power of the targeted units to " + displayedCard.stats.power;
                     break;
                 case CardPreset.Effect.Plus:
-                    cardEffect = "add " + displayedCard.stats.power + " to the targeted units power";
+                    cardEffect = "Add " + displayedCard.stats.power + " to the targeted units power";
                     break;
                 case CardPreset.Effect.Minus:
-                    cardEffect = "remove " + displayedCard.stats.power + " to the targeted units power";
+                    cardEffect = "Remove " + displayedCard.stats.power + " to the targeted units power";
                     break;
                 case CardPreset.Effect.Multiply:
-                    cardEffect = "multiply the targeted units power by " + displayedCard.stats.power;
+                    cardEffect = "Multiply the targeted units power by " + displayedCard.stats.power;
                     break;
                 case CardPreset.Effect.Divide:
-                    cardEffect = "divide the targeted units power by " + displayedCard.stats.power;
+                    cardEffect = "Divide the targeted units power by " + displayedCard.stats.power;
                     break;
                 case CardPreset.Effect.Nullify:
-                    cardEffect = "make the targeted units power equal to 0";
+                    cardEffect = "Reduce the targeted units power to 0";
                     break;
                 case CardPreset.Effect.Heal:
-                    cardEffect = "heal you instead by " + displayedCard.stats.power + " instead of attacking at the end of the turn";
+                    cardEffect = "Targeted units heal you by their power INSTEAD of attacking";
                     break;
                 case CardPreset.Effect.None:
-                    cardEffect = "";
+                    cardEffect = "None";
                     break;
             }
 
-            cardGameplayText.text = "Base Power : " + displayedCard.power + " - Effect : This unit will " + cardEffect;
+            cardGameplayText.text = "BASE POWER : " + displayedCard.stats.power + "\nEFFECT : " + cardEffect + ".";
             cardLoreText.text = displayedCard.stats.cardDescription;
         }
     }
@@ -71,7 +72,7 @@ public class TooltipUI : MonoBehaviour
     {
         cardNameText.text = null;
         cardType.text = null;
-        cardImage.sprite = null;
+        cardImage.enabled = false;
         cardGameplayText.text = null;
         cardLoreText.text = null;
     }

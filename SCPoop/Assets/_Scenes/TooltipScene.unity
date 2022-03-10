@@ -3053,9 +3053,9 @@ MonoBehaviour:
   electroLinkVerticalEnemy: {fileID: 7580070920142941956, guid: 367a0d019a0db624d9abe75256c613eb, type: 3}
   electroLinkDiagonalEnemy: {fileID: 8069938519378881483, guid: 361da3c446c0907439db5e18e58b88f0, type: 3}
   electroLinkHorizontalEnemy: {fileID: 2318196684324908612, guid: dfaab42eae515fc4cb6756d65dbde9ac, type: 3}
-  depthlinkEnemy: 0.05
+  depthlinkEnemy: 0.1
   electroLinkVertical: {fileID: 7580070920142941956, guid: 3b6da1f63a9b59a4b90941eea85c435e, type: 3}
-  electroLinkDiagonal: {fileID: 8069938519378881483, guid: 0f8333e82103a404ca956307ef54d07b, type: 3}
+  electroLinkDiagonal: {fileID: 8069938519378881483, guid: 3b8682f7b276f5742ba0d89cca30395a, type: 3}
   electroLinkHorizontal: {fileID: 2318196684324908612, guid: 80deb3345845997458dec03113401de5, type: 3}
   depthlink: 0.03
 --- !u!65 &1241994880
@@ -4242,7 +4242,7 @@ PrefabInstance:
     - target: {fileID: -4390332830360450270, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
       propertyPath: stats
       value: 
-      objectReference: {fileID: 11400000, guid: 4be3c95a44a54d54896c943b2f618e9f, type: 2}
+      objectReference: {fileID: 11400000, guid: 5025f03dba1452e4f8d691d20a7bd22d, type: 2}
     - target: {fileID: 7482394428414773562, guid: 9f69a66c97613f5499cc5a7ab46fe9ff, type: 3}
       propertyPath: m_RootOrder
       value: 7
