@@ -57,9 +57,9 @@ public class Grid : MonoBehaviour
         cards[1][0] = card[1];
         cards[2][0] = card[2];
 
-        slots[0] = s[0];
-        slots[1] = s[1];
-        slots[2] = s[2];
+        slots[0] = s[1];
+        slots[1] = s[2];
+        slots[2] = s[3];
 
         InitEnemyTrails();
     }
@@ -75,7 +75,6 @@ public class Grid : MonoBehaviour
                 {
                     switch (j)
                     {
-
                         case 1:
                             GameObject localLinkDown = Instantiate(electroLinkVerticalEnemy, slots[i].gameObject.transform, false);
                             localLinkDown.transform.localPosition = new Vector3(0, depthlinkEnemy, -0.45f);

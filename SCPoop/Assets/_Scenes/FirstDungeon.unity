@@ -3202,7 +3202,7 @@ MonoBehaviour:
   electroLinkHorizontalEnemy: {fileID: 2318196684324908612, guid: dfaab42eae515fc4cb6756d65dbde9ac, type: 3}
   depthlinkEnemy: 0.1
   electroLinkVertical: {fileID: 7580070920142941956, guid: 3b6da1f63a9b59a4b90941eea85c435e, type: 3}
-  electroLinkDiagonal: {fileID: 8069938519378881483, guid: 3b8682f7b276f5742ba0d89cca30395a, type: 3}
+  electroLinkDiagonal: {fileID: 8069938519378881483, guid: 0f8333e82103a404ca956307ef54d07b, type: 3}
   electroLinkHorizontal: {fileID: 2318196684324908612, guid: 80deb3345845997458dec03113401de5, type: 3}
   depthlink: 0.03
 --- !u!65 &1241994880
@@ -3308,7 +3308,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3333,7 +3333,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266474825}
-  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
+  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
   m_LocalPosition: {x: 0, y: 3.8000002, z: -10.798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3620,7 +3620,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3645,7 +3645,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443170132}
-  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
+  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
   m_LocalPosition: {x: 0, y: 3.8000002, z: -10.798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
