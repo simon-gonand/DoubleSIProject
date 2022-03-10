@@ -6073,9 +6073,9 @@ MonoBehaviour:
   electroLinkDiagonalEnemy: {fileID: 8069938519378881483, guid: 361da3c446c0907439db5e18e58b88f0, type: 3}
   electroLinkHorizontalEnemy: {fileID: 2318196684324908612, guid: dfaab42eae515fc4cb6756d65dbde9ac, type: 3}
   depthlinkEnemy: 0.1
-  electroLinkVertical: {fileID: 1329696893}
   electroLinkDiagonal: {fileID: 8069938519378881483, guid: 0f8333e82103a404ca956307ef54d07b, type: 3}
   electroLinkHorizontal: {fileID: 2318196684324908612, guid: 80deb3345845997458dec03113401de5, type: 3}
+  electroLinkVertical: {fileID: 7580070920142941956, guid: 3b6da1f63a9b59a4b90941eea85c435e, type: 3}
   depthlink: 0.03
   playerDamage: {fileID: 297044018}
   increaseDuration: 1
