@@ -13,6 +13,7 @@ public class Grid : MonoBehaviour
 
     public float playerResult = 0;
     public float enemyResult = 0;
+    public float heal = 0;
 
     [Header("LinkEnnemies")] 
     public GameObject electroLinkVerticalEnemy;
@@ -333,7 +334,7 @@ public class Grid : MonoBehaviour
 
         playerResult = 0;
         enemyResult = 0;
-        float heal = 0;
+        heal = 0;
         bool isFull = true;
 
         for (int x = 0; x < 3; ++x)

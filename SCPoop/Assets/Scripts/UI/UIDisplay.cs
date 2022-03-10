@@ -8,6 +8,7 @@ public class UIDisplay : MonoBehaviour
 {
     public TextMeshProUGUI txtPlayersPower;
     public TextMeshProUGUI txtEnemyPower;
+    public TextMeshProUGUI txtHeal;
     public TextMeshProUGUI txtPlayerTurn;
     public TextMeshProUGUI txtTimer;
 
@@ -30,7 +31,8 @@ public class UIDisplay : MonoBehaviour
 
     private void Update()
     {
-        txtPlayersPower.text = "Combined Power = " + Grid.instance.playerResult;
+        txtPlayersPower.text = "Player Power = " + Grid.instance.playerResult;
+        txtHeal.text = "Heal = " + Grid.instance.heal;
         txtEnemyPower.text = "Enemy Power = " + Grid.instance.enemyResult;
 
         playerHealthBar.sizeDelta = new Vector2(LifeSystem.instance.playerLife / LifeSystem.instance.playerMaxLife * maxPlayerHPWidth, playerHealthBar.sizeDelta.y);
