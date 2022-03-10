@@ -22,7 +22,6 @@ public class Card : MonoBehaviour
     private float depthArrow = 0.3f;
     private float _tempPower;
     private float currentPower;
-    private int actualisePowerStep = 10;
     public float tempPower { get { return _tempPower; } }
     private bool _tempIsHeal;
     public bool tempIsHeal { get { return _tempIsHeal; } }
@@ -218,7 +217,10 @@ public class Card : MonoBehaviour
                 return;
         }
 
+
         if (_tempPower < 0.0f) _tempPower = 0.0f;
+        else 
+            _tempPower= Mathf.Round(_tempPower * 10.0f) * 0.1f;
     }
 
     public void ActualisePower(bool isEnemy)
@@ -237,8 +239,7 @@ public class Card : MonoBehaviour
     {
         
         yield return new WaitForSeconds(0.1f);
-        
-        if (currentPower <=tempPower)
+        if (currentPower <= tempPower)
         {
             currentPower = currentPower + 1f;
             currentPowerText.text = currentPower.ToString();
@@ -247,7 +248,6 @@ public class Card : MonoBehaviour
         else
         {
             currentPowerText.text = tempPower.ToString();
-            actualisePowerStep = 0;
         }
     }
     public IEnumerator PlayCard(int x, int y)
