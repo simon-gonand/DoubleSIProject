@@ -53,6 +53,7 @@ public class CardDragMovements : MonoBehaviour
                     int x = i - y * 3;
                     //Debug.Log(i);
                     Grid.instance.AddCard(card, x, y);
+                    AudioManager.instance.PlaySFXPlayCard();
                 }
             }
             return;
@@ -114,7 +115,7 @@ public class CardDragMovements : MonoBehaviour
     public void OnBeginHover()
     {
         isHover = true;
-
+        AudioManager.instance.PlaySFXHover();
         hoverOriginalPos = self.position;
 
         self.position += (Camera.main.transform.position - self.position).normalized * hoverHeight;

@@ -7,7 +7,10 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public AudioClip SFXPlayCard;
-    public AudioClip SFXAttack;
+    public AudioClip SFXHover;
+    public AudioClip SFXAttackpart1;
+    public AudioClip SFXAttackpart2;
+    public float timeBetweenAttackSounds;
     public AudioClip mainMusic;
 
     public AudioSource audioSource;
@@ -30,9 +33,19 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.PlayOneShot(SFXPlayCard);
     }
+    public void PlaySFXHover()
+    {
+        audioSource.PlayOneShot(SFXHover,0.3f);
+    }
 
     public void PlaySFXAttack()
     {
-        audioSource.PlayOneShot(SFXAttack);
+        audioSource.PlayOneShot(SFXAttackpart1);
+        StartCoroutine(Attack());
+    }
+    IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(timeBetweenAttackSounds);
+        audioSource.PlayOneShot(SFXAttackpart2);
     }
 }
