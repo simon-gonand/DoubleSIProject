@@ -199,7 +199,7 @@ public class Grid : MonoBehaviour
                                 break;
 
                             case 6:
-                                if (i != 6 && i != 7 && i != 8)
+                                if (i != 6 && i != 7 && i != 8 && i != 5 )
                                 {
                                     GameObject localLinkDownRight = Instantiate(electroLinkDiagonal, slots[i].gameObject.transform, false);
                                     localLinkDownRight.transform.localPosition = new Vector3(0.45f, depthlink, -0.5f);
@@ -209,7 +209,7 @@ public class Grid : MonoBehaviour
 
                                 break;
                             case 7:
-                                if (i != 6 && i != 7 && i != 8)
+                                if (i != 6 && i != 7 && i != 8 && i != 3)
                                 {
                                     GameObject localLinkDownLeft = Instantiate(electroLinkDiagonal, slots[i].gameObject.transform, false);
                                     localLinkDownLeft.transform.localPosition = new Vector3(-0.45f, depthlink, -0.5f);
@@ -346,13 +346,20 @@ public class Grid : MonoBehaviour
                     continue;
                 }
                 if (y == 0)
+                {
+                    //Enemy
                     enemyResult += cards[x][y].tempPower;
+                    cards[x][y].ActualisePower(true);
+                }
                 else
                 {
+                    //player
                     if (cards[x][y].tempIsHeal)
                         heal += cards[x][y].tempPower;
                     else
                         playerResult += cards[x][y].tempPower;
+
+                    cards[x][y].ActualisePower(false);
                 }
             }
         }
@@ -366,6 +373,7 @@ public class Grid : MonoBehaviour
         /*Debug.Log("Enemy power : " + enemyResult);
         Debug.Log("Player power : " + playerResult);
         Debug.Log("Heal : " + heal);*/
+
     }
 
     private void CheckDirection(int x, int y, int j)

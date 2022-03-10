@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
@@ -13,10 +14,15 @@ public class Card : MonoBehaviour
     public MeshRenderer materialSymbol;
     public List<Mesh> symbols;
     public List<Material> symbolMaterials;
-    public TextMesh power;
+    public TextMesh powerText;
+    public TextMeshPro currentPowerText;
+    public Material enemyFontMaterial;
+    public ParticleSystem BuffFX;
     public MeshRenderer mesh;
     private float depthArrow = 0.3f;
-    [HideInInspector] public float _tempPower;
+    private float _tempPower;
+    private float currentPower;
+    private int actualisePowerStep = 10;
     public float tempPower { get { return _tempPower; } }
     private bool _tempIsHeal;
     public bool tempIsHeal { get { return _tempIsHeal; } }
@@ -166,7 +172,7 @@ public class Card : MonoBehaviour
     }
     public void InitPower()
     {
-        power.text = stats.power.ToString();
+        powerText.text = stats.power.ToString();
     }    
     
     public void InitGraph()
@@ -215,6 +221,35 @@ public class Card : MonoBehaviour
         if (_tempPower < 0.0f) _tempPower = 0.0f;
     }
 
+    public void ActualisePower(bool isEnemy)
+    {
+        if (isEnemy == true)
+        {
+            currentPowerText.fontMaterial = enemyFontMaterial;
+            
+            currentPowerText.transform.localEulerAngles = new Vector4(70, 0, 0);
+        }
+        currentPower = stats.power;
+        BuffFX.Play(true);
+        StartCoroutine(UpPower());
+    }
+    IEnumerator UpPower()
+    {
+        
+        yield return new WaitForSeconds(0.1f);
+        
+        if (currentPower <=tempPower)
+        {
+            currentPower = currentPower + 1f;
+            currentPowerText.text = currentPower.ToString();
+            StartCoroutine(UpPower());
+        }
+        else
+        {
+            currentPowerText.text = tempPower.ToString();
+            actualisePowerStep = 0;
+        }
+    }
     public IEnumerator PlayCard(int x, int y)
     {
         float t = 0.0f;
