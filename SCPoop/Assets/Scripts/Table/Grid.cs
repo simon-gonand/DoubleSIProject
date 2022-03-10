@@ -24,9 +24,9 @@ public class Grid : MonoBehaviour
     private List  <GameObject> enemyTrail = new List<GameObject>();
     [Header("LinkPlayer")]
     private List<GameObject> playerTrail = new List<GameObject>();
-    public GameObject electroLinkVertical;
     public GameObject electroLinkDiagonal;
     public GameObject electroLinkHorizontal;
+    public GameObject electroLinkVertical;
     public float depthlink = 0.05f;
 
     [Header("FXAttack")]
@@ -163,8 +163,9 @@ public class Grid : MonoBehaviour
                                 break;
 
                             case 1:
-                                if(i!=6 && i != 7 && i != 8)
+                                if (i != 6 && i != 7 && i != 8)
                                 {
+                                    Debug.Log("test");
                                     GameObject localLinkDown = Instantiate(electroLinkVertical, slots[i].gameObject.transform, false);
                                     localLinkDown.transform.localPosition = new Vector3(0, depthlink, -0.5f);
                                     playerTrail.Add(localLinkDown);
@@ -441,7 +442,7 @@ public class Grid : MonoBehaviour
 
     private void Attack()
     {
-
+        Timer.instance.StopTimer();
         playerDamage.SetActive(true);
         playerdamageText.gameObject.SetActive(true);
         StartCoroutine(LerpPower(playerResult,playerdamageText));
@@ -481,21 +482,20 @@ public class Grid : MonoBehaviour
     }
     public void EndEnemyAttack()
     {
+        Timer.instance.ResetTime();
+        Timer.instance.LaunchTimer();
         enemydamageText.gameObject.SetActive(false);
         LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult; 
         enemyDamage.SetActive(false);
-        if (LifeSystem.instance.enemylife > 0)
-        {
-            StartCoroutine(FightCoroutine(0.7f));
-        }
+        
     }
-    IEnumerator FightCoroutine(float time)
-    {
-        yield return new WaitForSeconds(time);
-        LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult;
-        Debug.Log(LifeSystem.instance.playerLife);
-        Debug.Log(LifeSystem.instance.enemylife);
-    }
+    //IEnumerator FightCoroutine(float time)
+    //{
+    //    yield return new WaitForSeconds(time);
+    //    LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult;
+    //    Debug.Log(LifeSystem.instance.playerLife);
+    //    Debug.Log(LifeSystem.instance.enemylife);
+    //}
 
     public bool CheckSamePowerOnLine(int line)
     {
