@@ -32,7 +32,7 @@ public class CardPresetEditor : Editor
         cardName = serializedObject.FindProperty("cardName");
         cardType = serializedObject.FindProperty("cardType");
         cardDescription = serializedObject.FindProperty("cardDescription");
-        cardImage = serializedObject.FindProperty("cardImage");
+        cardImage = serializedObject.FindProperty("cardTooltipImage");
     }
 
     public override void OnInspectorGUI()

@@ -19,7 +19,7 @@ MonoBehaviour:
   scpMesh: {fileID: 7122119885738833155, guid: 5db4bf36409b83449a223220bf946de1, type: 3}
   scpMaterial: {fileID: 2100000, guid: efdb0f065a84b7e4e844c0ef6d47687d, type: 2}
   cardSprite: {fileID: 21300000, guid: 611fa9b9ddf513c45a3b06686bad57e0, type: 3}
-  cardName: 
-  cardType: 
+  cardName: SCP_095FR
+  cardType: Keter
   cardDescription: 
-  cardImage: {fileID: 0}
+  cardTooltipImage: {fileID: 21300000, guid: e69bc576ddc6a714f83fdabb4e48b257, type: 3}

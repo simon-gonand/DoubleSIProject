@@ -19,7 +19,7 @@ MonoBehaviour:
   scpMesh: {fileID: 5060444177187149915, guid: 1c8c2b38954c6664eaff8102c30f571c, type: 3}
   scpMaterial: {fileID: 2100000, guid: a81cd45de56d271498b61f9121f7a0c7, type: 2}
   cardSprite: {fileID: 21300000, guid: 81253af566d55504a97d73264a42dd17, type: 3}
-  cardName: 
-  cardType: 
+  cardName: SCP_208
+  cardType: Keter
   cardDescription: 
-  cardImage: {fileID: 0}
+  cardTooltipImage: {fileID: 21300000, guid: dafbace64eb86ab4591a5b16643c1774, type: 3}

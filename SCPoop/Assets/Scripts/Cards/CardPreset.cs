@@ -28,5 +28,5 @@ public class CardPreset : ScriptableObject
     public string cardName;
     public string cardType;
     public string cardDescription;
-    public Sprite cardImage;
+    public Sprite cardTooltipImage;
 }
