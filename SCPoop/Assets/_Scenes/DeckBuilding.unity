@@ -3191,8 +3191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab23816822e3f1408fe1d6d9c08c4ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLife: 10
-  playerMaxLife: 10
+  playerLife: 50
+  playerMaxLife: 50
   enemylife: 10
   enemyMaxLife: 10
 --- !u!114 &1560056509

@@ -495,7 +495,7 @@ public class Grid : MonoBehaviour
     public void EndAttack()
     {
         playerdamageText.gameObject.SetActive(false);
-        LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
+        LifeSystem.instance.enemylife -= playerResult;
         playerDamage.SetActive(false);
         if (LifeSystem.instance.enemylife > 0)
         {
@@ -521,7 +521,7 @@ public class Grid : MonoBehaviour
     {
         Timer.instance.LaunchTimer();
         enemydamageText.gameObject.SetActive(false);
-        LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult; 
+        LifeSystem.instance.playerLife -= enemyResult; 
         enemyDamage.SetActive(false);
         GameManager.instance.EndTurn();
     }

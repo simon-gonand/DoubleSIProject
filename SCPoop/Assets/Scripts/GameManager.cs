@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
             Timer.instance.StopTimer();
             return;
         }
-        //Display.displays[1].Activate();
+        Display.displays[1].Activate();
         Timer.instance.LaunchTimer();
         stateDrivenCamera = FindObjectOfType<CinemachineStateDrivenCamera>();
         tooltipUI = FindObjectOfType<TooltipUI>();
