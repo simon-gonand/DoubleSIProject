@@ -15,5 +15,5 @@ MonoBehaviour:
   cards:
   - {fileID: 11400000, guid: 84791f3c9e6bff648a0fee8725fda6e0, type: 2}
   - {fileID: 11400000, guid: 05a45c658122ab14f9765779ddae3b9f, type: 2}
-  - {fileID: 11400000, guid: 60630b0552638dd4da08327a8420fd23, type: 2}
+  - {fileID: 11400000, guid: 5025f03dba1452e4f8d691d20a7bd22d, type: 2}
   healthPoints: 20
