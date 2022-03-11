@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DungeonManager : MonoBehaviour
 {
@@ -32,8 +33,7 @@ public class DungeonManager : MonoBehaviour
     {
         if (actualWave >= waves.Count)
         {
-            Debug.Log("Victory !");
-            // Display Victory Screen
+            SceneManager.LoadScene("Victory Screen");
             return;
         }
 

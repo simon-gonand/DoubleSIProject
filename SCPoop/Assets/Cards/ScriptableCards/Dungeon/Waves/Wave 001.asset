@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a231e0345d78f7246ae3d902dc8f4d71, type: 2}
   - {fileID: 11400000, guid: c30ab0b2d7a1f9044bde1acf7b671bb4, type: 2}
   - {fileID: 11400000, guid: 4be3c95a44a54d54896c943b2f618e9f, type: 2}
-  healthPoints: 10
+  healthPoints: 20
