@@ -48,13 +48,16 @@ public class Carousel : MonoBehaviour
 
     private IEnumerator ChangeBoardLerp(GameObject boardToPlay, GameObject boardToRemove, CardPreset[] cards)
     {
-        Transform[] slots = boardToPlay.GetComponentsInChildren<Transform>();
+        Transform[] slots = new Transform[3];
+        slots[0] = boardToPlay.transform.GetChild(0);
+        slots[1] = boardToPlay.transform.GetChild(1);
+        slots[2] = boardToPlay.transform.GetChild(2);
 
         List<Card> newCards = new List<Card>();
 
         for (int i = 0; i < 3; ++i)
         {
-            GameObject c = Instantiate(cardPrefab, slots[i + 1].position, Quaternion.identity, slots[i + 1]);
+            GameObject c = Instantiate(cardPrefab, boardToPlay.transform.GetChild(i).position, Quaternion.identity, boardToPlay.transform.GetChild(i));
             Card card = c.GetComponent<Card>();
             c.GetComponent<CardDragMovements>().isSnapped = true;
             card.stats = cards[i];

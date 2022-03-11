@@ -67,9 +67,9 @@ public class Grid : MonoBehaviour
         cards[1][0] = card[1];
         cards[2][0] = card[2];
 
-        slots[0] = s[1];
-        slots[1] = s[2];
-        slots[2] = s[3];
+        slots[0] = s[0];
+        slots[1] = s[1];
+        slots[2] = s[2];
 
         InitEnemyTrails();
     }
