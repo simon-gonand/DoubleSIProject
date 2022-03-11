@@ -28,7 +28,10 @@ public class MousePositionDetection : MonoBehaviour
 
         if (draggingCard != null) return;
 
-        Ray ray = CameraSwitch.instance.currentCamera.ScreenPointToRay(Input.mousePosition);
+        Vector3 mousePos = Input.mousePosition;
+        if (!GameManager.instance.player1Turn)
+            mousePos = Display.RelativeMouseAt(mousePos);
+        Ray ray = CameraSwitch.instance.currentCamera.ScreenPointToRay(mousePos);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << GameManager.instance.GetPlayerLayerMask()))

@@ -107,21 +107,21 @@ public class CameraSwitch : MonoBehaviour
 
         if (cameraBrainP1.enabled)
         {
-            Camera cam1 = cameraBrainP1.GetComponent<Camera>();
+            /*Camera cam1 = cameraBrainP1.GetComponent<Camera>();
             Camera cam2 = cameraBrainP2.GetComponent<Camera>();
             cam1.targetDisplay = 0;
-            cam2.targetDisplay = 1;
+            cam2.targetDisplay = 1;*/
 
-            currentCamera = cam1;
+            currentCamera = cameraBrainP1.GetComponent<Camera>(); ;
         }
         else
         {
-            Camera cam1 = cameraBrainP1.GetComponent<Camera>();
+            /*Camera cam1 = cameraBrainP1.GetComponent<Camera>();
             Camera cam2 = cameraBrainP2.GetComponent<Camera>();
             cam1.targetDisplay = 1;
-            cam2.targetDisplay = 0;
+            cam2.targetDisplay = 0;*/
 
-            currentCamera = cam2;
+            currentCamera = cameraBrainP2.GetComponent<Camera>();
         }
 
         if (currentCamIndex != 1)

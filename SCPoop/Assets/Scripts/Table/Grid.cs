@@ -165,7 +165,6 @@ public class Grid : MonoBehaviour
                             case 1:
                                 if (i != 6 && i != 7 && i != 8)
                                 {
-                                    Debug.Log("test");
                                     GameObject localLinkDown = Instantiate(electroLinkVertical, slots[i].gameObject.transform, false);
                                     localLinkDown.transform.localPosition = new Vector3(0, depthlink, -0.5f);
                                     playerTrail.Add(localLinkDown);
