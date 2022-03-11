@@ -389,7 +389,6 @@ public class Grid : MonoBehaviour
         if (isFull)
         {
             Attack();
-            GameManager.instance.EndTurn();
         }
 
         /*Debug.Log("Enemy power : " + enemyResult);
@@ -496,7 +495,6 @@ public class Grid : MonoBehaviour
     }
     public void EndAttack()
     {
-        Debug.Log("fin");
         playerdamageText.gameObject.SetActive(false);
         LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
         playerDamage.SetActive(false);
@@ -504,6 +502,11 @@ public class Grid : MonoBehaviour
         {
             EnemyAttack();
             //StartCoroutine(FightCoroutine(0.7f));
+        }
+        else
+        {
+            Timer.instance.LaunchTimer();
+            GameManager.instance.EndTurn();
         }
     }
     private void EnemyAttack()
@@ -517,12 +520,11 @@ public class Grid : MonoBehaviour
     }
     public void EndEnemyAttack()
     {
-        Timer.instance.ResetTime();
         Timer.instance.LaunchTimer();
         enemydamageText.gameObject.SetActive(false);
         LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult; 
         enemyDamage.SetActive(false);
-        
+        GameManager.instance.EndTurn();
     }
     //IEnumerator FightCoroutine(float time)
     //{

@@ -129,8 +129,9 @@ public class CardDragMovements : MonoBehaviour
 
     public void OnBeginHover()
     {
+        if (!isSnapped)
+            AudioManager.instance.PlaySFXHover();
         isHover = true;
-        AudioManager.instance.PlaySFXHover();
         hoverOriginalPos = self.position;
 
         if (gameObject.layer == 8 || gameObject.layer == 9)

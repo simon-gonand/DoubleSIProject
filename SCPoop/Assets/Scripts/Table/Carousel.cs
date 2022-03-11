@@ -56,6 +56,7 @@ public class Carousel : MonoBehaviour
         {
             GameObject c = Instantiate(cardPrefab, slots[i + 1].position, Quaternion.identity, slots[i + 1]);
             Card card = c.GetComponent<Card>();
+            c.GetComponent<CardDragMovements>().isSnapped = true;
             card.stats = cards[i];
             card.GetComponent<Card>().Init();
             newCards.Add(card);
