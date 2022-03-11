@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Grid : MonoBehaviour
 {
@@ -23,11 +24,19 @@ public class Grid : MonoBehaviour
     private List  <GameObject> enemyTrail = new List<GameObject>();
     [Header("LinkPlayer")]
     private List<GameObject> playerTrail = new List<GameObject>();
-    public GameObject electroLinkVertical;
     public GameObject electroLinkDiagonal;
     public GameObject electroLinkHorizontal;
+    public GameObject electroLinkVertical;
     public float depthlink = 0.05f;
 
+    [Header("FXAttack")]
+    public GameObject playerDamage;
+    public float increaseDuration = 1;
+    public TextMeshPro playerdamageText;
+
+    [Header("FXWound")]
+    public GameObject enemyDamage;
+    public TextMeshPro enemydamageText;
 
     private void Awake()
     {
@@ -154,8 +163,9 @@ public class Grid : MonoBehaviour
                                 break;
 
                             case 1:
-                                if(i!=6 && i != 7 && i != 8)
+                                if (i != 6 && i != 7 && i != 8)
                                 {
+                                    Debug.Log("test");
                                     GameObject localLinkDown = Instantiate(electroLinkVertical, slots[i].gameObject.transform, false);
                                     localLinkDown.transform.localPosition = new Vector3(0, depthlink, -0.5f);
                                     playerTrail.Add(localLinkDown);
@@ -378,7 +388,7 @@ public class Grid : MonoBehaviour
 
         if (isFull)
         {
-            Attack(playerResult, enemyResult);
+            Attack();
             GameManager.instance.EndTurn();
         }
 
@@ -465,22 +475,62 @@ public class Grid : MonoBehaviour
         }
     }
 
-    private void Attack(float playerResult, float enemyResult)
+    private void Attack()
     {
-        LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
-        if(LifeSystem.instance.enemylife > 0)
+        Timer.instance.StopTimer();
+        playerDamage.SetActive(true);
+        playerdamageText.gameObject.SetActive(true);
+        StartCoroutine(LerpPower(playerResult,playerdamageText));
+        //PlayerDamageAnimation.Play();
+
+    }
+    private IEnumerator LerpPower(float value,TextMeshPro text)
+    {
+        float timeElapsed = 0.0f;
+        while (timeElapsed < increaseDuration)
         {
-            StartCoroutine(FightCoroutine(0.7f, enemyResult));
+            timeElapsed += Time.deltaTime;
+            text.text = ((int)Mathf.Lerp(0, value, timeElapsed / increaseDuration)).ToString();
+            yield return null;
         }
     }
-
-    IEnumerator FightCoroutine(float time, float enemyResult)
+    public void EndAttack()
     {
-        yield return new WaitForSeconds(time);
-        LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult;
-        Debug.Log(LifeSystem.instance.playerLife);
-        Debug.Log(LifeSystem.instance.enemylife);
+        Debug.Log("fin");
+        playerdamageText.gameObject.SetActive(false);
+        LifeSystem.instance.enemylife = LifeSystem.instance.enemylife - playerResult;
+        playerDamage.SetActive(false);
+        if (LifeSystem.instance.enemylife > 0)
+        {
+            EnemyAttack();
+            //StartCoroutine(FightCoroutine(0.7f));
+        }
     }
+    private void EnemyAttack()
+    {
+
+        enemyDamage.SetActive(true);
+        enemydamageText.gameObject.SetActive(true);
+        StartCoroutine(LerpPower(enemyResult,enemydamageText));
+        //PlayerDamageAnimation.Play();
+
+    }
+    public void EndEnemyAttack()
+    {
+        Timer.instance.ResetTime();
+        Timer.instance.LaunchTimer();
+        enemydamageText.gameObject.SetActive(false);
+        LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult; 
+        enemyDamage.SetActive(false);
+        
+    }
+    //IEnumerator FightCoroutine(float time)
+    //{
+    //    yield return new WaitForSeconds(time);
+    //    LifeSystem.instance.playerLife = LifeSystem.instance.playerLife - enemyResult;
+    //    Debug.Log(LifeSystem.instance.playerLife);
+    //    Debug.Log(LifeSystem.instance.enemylife);
+    //}
 
     public bool CheckSamePowerOnLine(int line)
     {
